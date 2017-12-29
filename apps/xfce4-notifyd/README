@@ -1,0 +1,10 @@
+The Xfce Notify Daemon (or "xfce4-notifyd") is a small program that implements
+the "server-side" portion of the Freedesktop desktop notifications
+specification. Applications that wish to pop up a notification bubble in a
+standard way can implicitly make use of xfce4-notifyd to do so by sending
+standard messages over D-Bus using the org.freedesktop.Notifications
+interface.
+
+Apart from the notification server a panel plugin is included which shows recent
+notifications in a dropdown menu in the Xfce Panel.
+
