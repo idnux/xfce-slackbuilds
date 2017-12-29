@@ -1,0 +1,6 @@
+This package provides the Xfce Gtk+-2.0 and Gtk+-3.0 engines, which allows
+for homogeneity in applications for both business and personal desktops.
+Minimum required Gtk+-2.0 version is currently Gtk+-2.20.0.
+Minimum required Gtk+-3.0 version is currently Gtk+-3.2.0.
+Gtk+-3.4.0 is not supported by the default themes.
+

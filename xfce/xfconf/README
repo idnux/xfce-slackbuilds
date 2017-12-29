@@ -1,0 +1,4 @@
+Xfconf is a hierarchical (tree-like) configuration system where the
+immediate child nodes of the root are called “channels”. All settings
+beneath the channel nodes are called “properties.” 
+
