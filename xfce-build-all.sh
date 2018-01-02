@@ -45,7 +45,7 @@ for dir in \
   xfce/garcon \
   xfce/tumbler \
   xfce/Thunar \
-  xfce/libwnck3 \
+  libs/libwnck3 \
   xfce/xfce4-panel \
   xfce/xfce4-settings \
   xfce/xfce4-session \
@@ -53,7 +53,7 @@ for dir in \
   xfce/xfwm4 \
   xfce/xfce4-appfinder \
   xfce/thunar-volman \
-  xfce/upower \
+  libs/upower \
   xfce/xfce4-power-manager \
   xfce/gtk-xfce/engine \
   apps/mousepad

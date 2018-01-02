@@ -3,44 +3,51 @@ XFCE SlackBuilds
 
 Proyek ini menyediakan skrip-skrip SlackBuild untuk membangun dan memasang lingkungan desktop XFCE (https://xfce.org) pada sistem operasi Slackware Linux.
 
+Paket-paket yang tersedia dalam lumbung ini merupakan versi pengembangan menuju versi 4.14, yang rencananya merupakan rilis lingkungan desktop Xfce pertama yang beralih menggunakan GTK+ 3.
+
 Senarai Paket:
--  Thunar
--  exo
--  garcon
--  gtk-xfce-engine
--  libwnck3
--  libxfce4ui
--  libxfce4util
--  thunar-volman
--  tumbler
--  upower
--  xfce4-appfinder
--  xfce4-dev-tools
--  xfce4-panel
--  xfce4-power-manager
--  xfce4-session
--  xfce4-settings
--  xfconf
--  xfdesktop
--  xfwm4
--  mousepad
--  orage
--  parole
--  ristretto
--  xarchiver
--  xfce4-notifyd
--  xfce4-screenshooter
--  xfce4-taskmanager
--  xfce4-terminal
--  xfce4-clipman-plugin
--  xfce4-datetime-plugin
--  xfce4-pulseaudio-plugin
--  xfce4-sensors-plugin
--  xfce4-systemload-plugin
--  xfce4-weather-plugin
--  xfce4-whiskermenu-plugin
--  xfce4-xkb-plugin
--  thunar-archive-plugin
+- Modul inti Xfce:
+  -  Thunar
+  -  exo
+  -  garcon
+  -  gtk-xfce-engine
+  -  libxfce4ui
+  -  libxfce4util
+  -  thunar-volman
+  -  tumbler
+  -  xfce4-appfinder
+  -  xfce4-dev-tools
+  -  xfce4-panel
+  -  xfce4-power-manager
+  -  xfce4-session
+  -  xfce4-settings
+  -  xfconf
+  -  xfdesktop
+  -  xfwm4
+- Pustaka:
+  -  libwnck3
+  -  upower
+- Aplikasi:
+  -  mousepad
+  -  orage
+  -  parole
+  -  ristretto
+  -  xarchiver
+  -  xfce4-notifyd
+  -  xfce4-screenshooter
+  -  xfce4-taskmanager
+  -  xfce4-terminal
+- Colok-masuk panel:
+  -  xfce4-clipman-plugin
+  -  xfce4-datetime-plugin
+  -  xfce4-pulseaudio-plugin
+  -  xfce4-sensors-plugin
+  -  xfce4-systemload-plugin
+  -  xfce4-weather-plugin
+  -  xfce4-whiskermenu-plugin
+  -  xfce4-xkb-plugin
+- Colok masuk Thunar
+  -  thunar-archive-plugin
 
 Sila digunakan dengan bebas, namun tidak ada jaminan paket yang dihasilkan dapat bekerja di sistem milik anda.
 
