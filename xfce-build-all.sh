@@ -56,24 +56,24 @@ for dir in \
   libs/upower \
   xfce/xfce4-power-manager \
   xfce/gtk-xfce/engine \
-  apps/mousepad
-  apps/orage
-  apps/parole
-  apps/ristretto
-  apps/xarchiver
-  apps/xfce4-notifyd
-  apps/xfce4-screenshooter
-  apps/xfce4-taskmanager
-  apps/xfce4-terminal
-  panel-plugins/xfce4-clipman-plugin
-  panel-plugins/xfce4-datetime-plugin
-  panel-plugins/xfce4-pulseaudio-plugin
-  panel-plugins/xfce4-sensors-plugin
-  panel-plugins/xfce4-systemload-plugin
-  panel-plugins/xfce4-weather-plugin
-  panel-plugins/xfce4-whiskermenu-plugin
-  panel-plugins/xfce4-xkb-plugin
-  thunar-plugins/thunar-archive-plugin
+  apps/mousepad \
+  apps/orage \
+  apps/parole \
+  apps/ristretto \
+  apps/xarchiver \
+  apps/xfce4-notifyd \
+  apps/xfce4-screenshooter \
+  apps/xfce4-taskmanager \
+  apps/xfce4-terminal \
+  panel-plugins/xfce4-clipman-plugin \
+  panel-plugins/xfce4-datetime-plugin \
+  panel-plugins/xfce4-pulseaudio-plugin \
+  panel-plugins/xfce4-sensors-plugin \
+  panel-plugins/xfce4-systemload-plugin \
+  panel-plugins/xfce4-weather-plugin \
+  panel-plugins/xfce4-whiskermenu-plugin \
+  panel-plugins/xfce4-xkb-plugin \
+  thunar-plugins/thunar-archive-plugin \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
