@@ -60,7 +60,6 @@ for dir in \
   apps/orage \
   apps/parole \
   apps/ristretto \
-  apps/xarchiver \
   apps/xfce4-notifyd \
   apps/xfce4-screenshooter \
   apps/xfce4-taskmanager \
@@ -74,6 +73,7 @@ for dir in \
   panel-plugins/xfce4-whiskermenu-plugin \
   panel-plugins/xfce4-xkb-plugin \
   thunar-plugins/thunar-archive-plugin \
+  extra/xarchiver \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
