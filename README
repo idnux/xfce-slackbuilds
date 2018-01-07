@@ -32,7 +32,7 @@ Senarai Paket:
   -  orage
   -  parole
   -  ristretto
-  -  xarchiver
+  -  xfce4-dict
   -  xfce4-notifyd
   -  xfce4-screenshooter
   -  xfce4-taskmanager
@@ -46,8 +46,11 @@ Senarai Paket:
   -  xfce4-weather-plugin
   -  xfce4-whiskermenu-plugin
   -  xfce4-xkb-plugin
-- Colok masuk Thunar
+- Colok-masuk Thunar
   -  thunar-archive-plugin
+- Aplikasi tambahan
+  -  xarchiver
+  -  xfce-polkit
 
 Sila digunakan dengan bebas, namun tidak ada jaminan paket yang dihasilkan dapat bekerja di sistem milik anda.
 
