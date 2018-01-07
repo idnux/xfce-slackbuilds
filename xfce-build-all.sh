@@ -65,6 +65,7 @@ for dir in \
   apps/xfce4-taskmanager \
   apps/xfce4-terminal \
   apps/xfce4-dict \
+  apps/xfce4-volumed-pulse \
   panel-plugins/xfce4-clipman-plugin \
   panel-plugins/xfce4-datetime-plugin \
   panel-plugins/xfce4-pulseaudio-plugin \
