@@ -74,6 +74,7 @@ for dir in \
   panel-plugins/xfce4-xkb-plugin \
   thunar-plugins/thunar-archive-plugin \
   extra/xarchiver \
+  extra/xfce-polkit \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
