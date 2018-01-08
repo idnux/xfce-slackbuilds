@@ -71,8 +71,13 @@ for dir in \
   panel-plugins/xfce4-cpufreq-plugin \
   panel-plugins/xfce4-datetime-plugin \
   panel-plugins/xfce4-diskperf-plugin \
+  panel-plugins/xfce4-fsguard-plugin \
+  panel-plugins/xfce4-genmon-plugin \
+  panel-plugins/xfce4-mount-plugin \
+  panel-plugins/xfce4-netload-plugin \
   panel-plugins/xfce4-pulseaudio-plugin \
   panel-plugins/xfce4-sensors-plugin \
+  panel-plugins/xfce4-smartbookmark-plugin \
   panel-plugins/xfce4-systemload-plugin \
   panel-plugins/xfce4-weather-plugin \
   panel-plugins/xfce4-whiskermenu-plugin \

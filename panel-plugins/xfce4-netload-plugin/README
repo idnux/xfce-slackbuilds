@@ -1,0 +1,7 @@
+ A netload plugin for the Xfce Panel
+
+This plugin displays the current load of the network interfaces of your 
+choice in the panel. It currently works on Linux, *BSD, Sun Solaris, HP_UX 
+and MacOS X. 
+
+

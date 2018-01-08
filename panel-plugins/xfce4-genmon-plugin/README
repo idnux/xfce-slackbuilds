@@ -1,0 +1,8 @@
+This plugin cyclically spawns the indicated script/program, captures its 
+output (stdout) and displays the resulting string into the panel.
+
+The string can also contain markup to displayed an image, a bar, a button 
+and a personalized tooltip.
+
+
+
