@@ -1,0 +1,6 @@
+Originally written by Thomas Schreck, this panel plugin shows
+information about the CPU governor and frequencies supported and used
+by your system. At the time of this writing, changing any of these
+settings is not supported by this plugin.
+
+

@@ -39,8 +39,11 @@ Senarai Paket:
   -  xfce4-terminal
   -  xfce4-volumed-pulse
 - Colok-masuk panel:
+  -  xfce4-battery-plugin
   -  xfce4-clipman-plugin
+  -  xfce4-cpufreq-plugin
   -  xfce4-datetime-plugin
+  -  xfce4-diskperf-plugin
   -  xfce4-pulseaudio-plugin
   -  xfce4-sensors-plugin
   -  xfce4-systemload-plugin

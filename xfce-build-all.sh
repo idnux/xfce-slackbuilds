@@ -66,8 +66,11 @@ for dir in \
   apps/xfce4-terminal \
   apps/xfce4-dict \
   apps/xfce4-volumed-pulse \
+  panel-plugins/xfce4-battery-plugin \
   panel-plugins/xfce4-clipman-plugin \
+  panel-plugins/xfce4-cpufreq-plugin \
   panel-plugins/xfce4-datetime-plugin \
+  panel-plugins/xfce4-diskperf-plugin \
   panel-plugins/xfce4-pulseaudio-plugin \
   panel-plugins/xfce4-sensors-plugin \
   panel-plugins/xfce4-systemload-plugin \
