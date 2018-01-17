@@ -56,6 +56,8 @@ for dir in \
   deps/upower \
   xfce/xfce4-power-manager \
   xfce/gtk-xfce/engine \
+  deps/glade \
+  deps/gtksourceview3 \
   apps/mousepad \
   apps/orage \
   apps/parole \

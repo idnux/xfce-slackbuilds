@@ -25,6 +25,8 @@ Senarai Paket:
   -  xfdesktop
   -  xfwm4
 - Pustaka:
+  -  glade
+  -  gtksourceview3
   -  libwnck3
   -  upower
 - Aplikasi:
