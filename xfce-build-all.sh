@@ -87,6 +87,7 @@ for dir in \
   thunar-plugins/thunar-archive-plugin \
   extra/xarchiver \
   extra/xfce-polkit \
+  extra/paper-icon-theme \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
