@@ -57,7 +57,7 @@ for dir in \
   xfce/thunar-volman \
   deps/upower \
   xfce/xfce4-power-manager \
-  xfce/gtk-xfce/engine \
+  xfce/gtk-xfce-engine \
   apps/mousepad \
   apps/orage \
   apps/parole \
