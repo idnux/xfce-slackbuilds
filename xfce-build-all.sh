@@ -88,6 +88,9 @@ for dir in \
   extra/xarchiver \
   extra/xfce-polkit \
   extra/paper-icon-theme \
+  deps/gtk-engine-murrine \
+  deps/rubygem-sass \
+  extra/paper-gtk-theme \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)

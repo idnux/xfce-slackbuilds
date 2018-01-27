@@ -1,8 +1,8 @@
 #!/bin/sh
-#
-# Slackware build script for paper-icon-theme.
-#
-# Copyright 2017 Ali Ahmadi, <idnux09@gmail.com>.
+
+# Slackware build script for rubygem-sass
+
+# Copyright 2016  Mario Preksavec, Zagreb, Croatia
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -21,11 +21,15 @@
 #  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# Modified by Ali Ahmadi <idnux09@gmail.com>
 
-PRGNAM="paper-icon-theme"
+PRGNAM=rubygem-sass
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
 TAG=${TAG:-_idnux}
+NUMJOBS=${NUMJOBS:--j7}
+
+_PRGNAM=sass
 
 # Automatically determine the architecture we're building on:
 MARCH=$( uname -m )
@@ -50,8 +54,8 @@ unset DOWNLOAD
 eval `cat $PRGNAM.info | grep "DOWNLOAD="`
 if [ ! -e $(basename $DOWNLOAD) ]; then
   echo "Downloading: $DOWNLOAD"
-  rm -rf $PRGNAM
-  git clone $DOWNLOAD
+  rm -f $_PRGNAM-$VERSION.gem
+  curl -OLJ -C - $DOWNLOAD
 fi
 
 if [ "$ARCH" = "i586" ]; then
@@ -73,31 +77,74 @@ set -e
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
 cd $WRK  || exit 1
-rm -rf $PRGNAM
-cp -r $CWD/$PRGNAM $WRK || exit 1
-cd $PRGNAM  || exit 1
 
-chown -R root:root .
-find -L . \
- \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
- -exec chmod 755 {} \; -o \
- \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
- -exec chmod 644 {} \;
 
-#Configure:
-./autogen.sh || exit 1
+DESTDIR=$( ruby -r rbconfig -e '
+include RbConfig
+printf("%s/%s/gems/%s\n",
+	CONFIG["libdir"],
+	CONFIG["RUBY_INSTALL_NAME"],
+	CONFIG["ruby_version"]
+      )
+')
+
+gem specification $CWD/$_PRGNAM-$VERSION.gem | \
+	ruby -r yaml -r rbconfig -e '
+c = RbConfig::CONFIG
+path = sprintf("%s/%s/gems/%s",
+        c["libdir"],
+        c["RUBY_INSTALL_NAME"],
+        c["ruby_version"])
+sys_gemspecs = Dir.glob(path + "/specifications/**/*.gemspec").map {|g| gs = Gem::Specification.load(g); gs.name }
+obj = Gem::Specification.from_yaml($stdin)
+obj.dependencies.each {|dep|
+        if not(dep.type == :runtime)
+                next
+        end
+        if not(sys_gemspecs.include?(dep.name))
+                $stderr.write("WARNING: #{dep.name} gem not found\n")
+                sleep 0.5
+        end
+
+}'
 
 # Build and install:
-make $NUMJOBS || make || exit 1
-make install DESTDIR=$PKG || exit 1
+gem install \
+	--local \
+	--no-update-sources \
+	--ignore-dependencies \
+	--backtrace \
+	--install-dir $PKG/$DESTDIR \
+	--bindir $PKG/usr/bin \
+	$CWD/$_PRGNAM-$VERSION.gem || exit 1
+
+# Strip binaries:
+find $PKG | xargs file | grep -e "executable" -e "shared object" \
+  | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+rm -rf $PKG/$DESTDIR/cache
+rmdir $PKG/$DESTDIR/{build_info,extensions}
+
+# Compress and if needed symlink the man pages:
+if [ -d $PKG/usr/man ]; then
+  ( cd $PKG/usr/man
+    for manpagedir in $(find . -type d -name "man*") ; do
+      ( cd $manpagedir
+        for eachpage in $( find . -type l -maxdepth 1) ; do
+          ln -s $( readlink $eachpage ).gz $eachpage.gz
+          rm $eachpage
+        done
+        gzip -9 *.?
+      )
+    done
+  )
+fi
 
 # Add a documentation directory.  Not all of these files are expected to be
 # present, but listing them ensures that documentation that might appear and
 # disappear from version to version will not be missed.
-mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
-cp -a \
-  AUTHORS COPYING LICENSE README* \
-  $PKG/usr/doc/${PRGNAM}-$VERSION
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 # If there's a ChangeLog, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
@@ -109,10 +156,9 @@ fi
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
+/sbin/makepkg -p -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 echo "Cleaning up build directory"
-cd $WRK; rm -rf $PRGNAM $PKG
+cd $WRK; rm -rf $PRGNAM-$VERSION $PKG

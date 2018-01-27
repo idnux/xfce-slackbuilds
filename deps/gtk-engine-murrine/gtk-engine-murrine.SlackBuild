@@ -1,8 +1,9 @@
 #!/bin/sh
-#
-# Slackware build script for paper-icon-theme.
-#
-# Copyright 2017 Ali Ahmadi, <idnux09@gmail.com>.
+
+# Slackware build script for gtk-engine-murrine
+
+# Written by crocket (crockabiscuit@gmail.com)
+# Copyright 2013-2016 Willy Sudiarto Raharjo <willysr@slackbuilds.org>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -21,8 +22,11 @@
 #  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# Modified by Ali Ahmadi <idnux09@gmail.com>
 
-PRGNAM="paper-icon-theme"
+
+PRGNAM=gtk-engine-murrine
+_PRGNAM=murrine
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
 TAG=${TAG:-_idnux}
@@ -50,8 +54,8 @@ unset DOWNLOAD
 eval `cat $PRGNAM.info | grep "DOWNLOAD="`
 if [ ! -e $(basename $DOWNLOAD) ]; then
   echo "Downloading: $DOWNLOAD"
-  rm -rf $PRGNAM
-  git clone $DOWNLOAD
+  rm -f $_PRGNAM-$VERSION.tar.*
+  curl -OLJ -C - $DOWNLOAD
 fi
 
 if [ "$ARCH" = "i586" ]; then
@@ -73,9 +77,9 @@ set -e
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
 cd $WRK  || exit 1
-rm -rf $PRGNAM
-cp -r $CWD/$PRGNAM $WRK || exit 1
-cd $PRGNAM  || exit 1
+rm -rf $_PRGNAM-$VERSION
+tar xvf $CWD/$_PRGNAM-$VERSION.tar.?z*  || exit 1
+cd $_PRGNAM-$VERSION  || exit 1
 
 chown -R root:root .
 find -L . \
@@ -84,21 +88,50 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-#Configure:
-./autogen.sh || exit 1
+# Configure:
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/usr \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --sysconfdir=/etc \
+  --localstatedir=/var \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --mandir=/usr/man \
+  --infodir=/usr/info \
+  --enable-animation \
+  --build=$ARCH-slackware-linux|| exit 1
 
 # Build and install:
 make $NUMJOBS || make || exit 1
 make install DESTDIR=$PKG || exit 1
 
+# Strip binaries:
+find $PKG | xargs file | grep -e "executable" -e "shared object" \
+  | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+# Compress and if needed symlink the man pages:
+if [ -d $PKG/usr/man ]; then
+  ( cd $PKG/usr/man
+    for manpagedir in $(find . -type d -name "man*") ; do
+      ( cd $manpagedir
+        for eachpage in $( find . -type l -maxdepth 1) ; do
+          ln -s $( readlink $eachpage ).gz $eachpage.gz
+          rm $eachpage
+        done
+        gzip -9 *.?
+      )
+    done
+  )
+fi
+
 # Add a documentation directory.  Not all of these files are expected to be
 # present, but listing them ensures that documentation that might appear and
 # disappear from version to version will not be missed.
-mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  AUTHORS COPYING LICENSE README* \
-  $PKG/usr/doc/${PRGNAM}-$VERSION
-
+  AUTHORS COPYING* ChangeLog INSTALL NEWS README TODO \
+  $PKG/usr/doc/$PRGNAM-$VERSION
 # If there's a ChangeLog, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
 if [ -r ChangeLog ]; then
@@ -109,10 +142,9 @@ fi
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 echo "Cleaning up build directory"
-cd $WRK; rm -rf $PRGNAM $PKG
+cd $WRK; rm -rf $_PRGNAM-$VERSION $PKG

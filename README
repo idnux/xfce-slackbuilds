@@ -26,8 +26,10 @@ Senarai Paket:
   -  xfwm4
 - Pustaka:
   -  glade
+  -  gtk-engine-murrine
   -  gtksourceview3
   -  libwnck3
+  -  rubygem-sass
   -  upower
 - Aplikasi:
   -  mousepad
@@ -63,6 +65,7 @@ Senarai Paket:
   -  xarchiver
   -  xfce-polkit
   -  paper-icon-theme
+  -  paper-gtk-theme
 
 Sila digunakan dengan bebas, namun tidak ada jaminan paket yang dihasilkan dapat bekerja di sistem milik anda.
 
