@@ -81,6 +81,7 @@ for dir in \
   panel-plugins/xfce4-sensors-plugin \
   panel-plugins/xfce4-smartbookmark-plugin \
   panel-plugins/xfce4-systemload-plugin \
+  panel-plugins/xfce4-timer-plugin \
   panel-plugins/xfce4-weather-plugin \
   panel-plugins/xfce4-whiskermenu-plugin \
   panel-plugins/xfce4-xkb-plugin \
