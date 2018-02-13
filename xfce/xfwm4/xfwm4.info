@@ -1,5 +1,5 @@
 PRGNAM="xfwm4"
-VERSION="4.13.0.git"
+VERSION="4.13.0.git20180213"
 HOMEPAGE="http://www.xfce.org/"
 DOWNLOAD="git://git.xfce.org/xfce/xfwm4"
 MD5SUM=""
