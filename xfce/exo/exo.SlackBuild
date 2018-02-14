@@ -102,7 +102,7 @@ make install DESTDIR=$PKG || exit 1
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
-  | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 # Compress and if needed symlink the man pages:
 if [ -d $PKG/usr/man ]; then
