@@ -37,55 +37,12 @@ CHECKDUPLICATE=0
 
 # Loop for all packages
 for dir in \
-  xfce/xfce4-dev-tools \
-  xfce/libxfce4util \
-  xfce/xfconf \
-  xfce/libxfce4ui \
-  xfce/exo \
-  xfce/garcon \
-  xfce/tumbler \
-  xfce/Thunar \
-  deps/libwnck3 \
-  deps/glade \
-  deps/gtksourceview3 \
-  xfce/xfce4-panel \
-  xfce/xfce4-settings \
-  xfce/xfce4-session \
-  xfce/xfdesktop \
-  xfce/xfwm4 \
-  xfce/xfce4-appfinder \
-  xfce/thunar-volman \
-  deps/upower \
-  xfce/xfce4-power-manager \
-  xfce/gtk-xfce-engine \
-  apps/mousepad \
-  apps/orage \
-  apps/parole \
-  apps/ristretto \
-  apps/xfce4-notifyd \
-  apps/xfce4-screenshooter \
-  apps/xfce4-taskmanager \
-  apps/xfce4-terminal \
-  apps/xfce4-dict \
-  apps/xfce4-volumed-pulse \
-  panel-plugins/xfce4-battery-plugin \
-  panel-plugins/xfce4-clipman-plugin \
-  panel-plugins/xfce4-cpufreq-plugin \
-  panel-plugins/xfce4-datetime-plugin \
-  panel-plugins/xfce4-diskperf-plugin \
-  panel-plugins/xfce4-fsguard-plugin \
-  panel-plugins/xfce4-genmon-plugin \
-  panel-plugins/xfce4-mount-plugin \
-  panel-plugins/xfce4-netload-plugin \
-  panel-plugins/xfce4-pulseaudio-plugin \
-  panel-plugins/xfce4-sensors-plugin \
-  panel-plugins/xfce4-smartbookmark-plugin \
-  panel-plugins/xfce4-systemload-plugin \
-  panel-plugins/xfce4-timer-plugin \
-  panel-plugins/xfce4-weather-plugin \
-  panel-plugins/xfce4-whiskermenu-plugin \
-  panel-plugins/xfce4-xkb-plugin \
-  thunar-plugins/thunar-archive-plugin \
+  extra/apps/xarchiver \
+  extra/apps/xfce-polkit \
+  extra/theme/paper-icon-theme \
+  extra/deps/gtk-engine-murrine \
+  extra/deps/rubygem-sass \
+  extra/theme/paper-gtk-theme \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)

@@ -26,10 +26,8 @@ Senarai Paket:
   -  xfwm4
 - Pustaka:
   -  glade
-  -  gtk-engine-murrine
   -  gtksourceview3
   -  libwnck3
-  -  rubygem-sass
   -  upower
 - Aplikasi:
   -  mousepad
@@ -63,10 +61,16 @@ Senarai Paket:
 - Colok-masuk Thunar
   -  thunar-archive-plugin
 - Aplikasi tambahan
-  -  xarchiver
-  -  xfce-polkit
-  -  paper-icon-theme
-  -  paper-gtk-theme
+  - Aplikasi
+    -  xarchiver
+    -  xfce-polkit
+  - Tema
+    -  paper-icon-theme
+    -  paper-gtk-theme
+  - Dependensi
+    -  rubygem-sass
+    -  gtk-engine-murrine
+
 
 Sila digunakan dengan bebas, namun tidak ada jaminan paket yang dihasilkan dapat bekerja di sistem milik anda.
 
