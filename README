@@ -28,6 +28,7 @@ Senarai Paket:
   -  glade
   -  gtksourceview3
   -  libwnck3
+  -  taglib
   -  upower
 - Aplikasi:
   -  mousepad
@@ -60,6 +61,7 @@ Senarai Paket:
   -  xfce4-xkb-plugin
 - Colok-masuk Thunar
   -  thunar-archive-plugin
+  -  thunar-media-tags-plugin
 - Aplikasi tambahan
   - Aplikasi
     -  xarchiver

@@ -86,6 +86,8 @@ for dir in \
   panel-plugins/xfce4-whiskermenu-plugin \
   panel-plugins/xfce4-xkb-plugin \
   thunar-plugins/thunar-archive-plugin \
+  deps\taglib \
+  thunar-plugins/thunar-media-tags-plugin \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
