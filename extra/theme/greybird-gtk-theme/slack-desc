@@ -1,0 +1,24 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+               |-----handy-ruler------------------------------------------------------|
+greybird-gtk-theme: greybird-gtk-theme (grey GTK+ theme from the Shimmer Project)
+greybird-gtk-theme:
+greybird-gtk-theme: Greybird has been the default theme for Xubuntu since 2011 when it
+greybird-gtk-theme: replaced Bluebird. Greybird can be described as more conservative yet
+greybird-gtk-theme: more modern than Bluebird. The Shimmer Project are the designers and
+greybird-gtk-theme: developers of both themes.
+greybird-gtk-theme:
+greybird-gtk-theme: Although originally created for Xfce, Greybird also supports other 
+greybird-gtk-theme: GTK+-based environments including Cinnamon, GNOME Shell, MATE,
+greybird-gtk-theme: and Unity.
+greybird-gtk-theme:
+greybird-gtk-theme: Home page: https://github.com/snwh/greybird-gtk-theme
+greybird-gtk-theme:
+greybird-gtk-theme:
+greybird-gtk-theme:
+greybird-gtk-theme:

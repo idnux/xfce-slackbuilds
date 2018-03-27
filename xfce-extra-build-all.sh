@@ -41,8 +41,13 @@ for dir in \
   extra/apps/xfce-polkit \
   extra/theme/paper-icon-theme \
   extra/deps/gtk-engine-murrine \
+  extra/deps/rubygem-ffi \
+  extra/deps/rubygem-rb-inotify \
+  extra/deps/rubygem-rb-fsevent \
+  extra/deps/rubygem-sass-listen \
   extra/deps/rubygem-sass \
   extra/theme/paper-gtk-theme \
+  extra/theme/greybird-gtk-theme \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)

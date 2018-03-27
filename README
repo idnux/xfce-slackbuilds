@@ -69,8 +69,13 @@ Senarai Paket:
   - Tema
     -  paper-icon-theme
     -  paper-gtk-theme
+    -  greybird-gtk-theme
   - Dependensi
     -  rubygem-sass
+    -  rubygem-sass-listen
+    -  rubygem-rb-fsevent
+    -  rubygem-rb-inotify
+    -  rubygem-ffi
     -  gtk-engine-murrine
 
 
