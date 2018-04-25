@@ -50,7 +50,7 @@ for dir in \
   extra/theme/greybird-gtk-theme \
   ; do
   # Get the package name
-  package=$(echo $dir | cut -f2- -d /)
+  package=$(echo $dir | cut -f3- -d /)
 
   # Change to package directory
   cd $XFCEROOT/$dir || exit 1

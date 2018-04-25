@@ -72,10 +72,10 @@ set -e
 
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
-cd $WRK  || exit 1
+cd $WRK
 rm -rf $PRGNAM
-cp -r $CWD/$PRGNAM $WRK || exit 1
-cd $PRGNAM  || exit 1
+cp -r $CWD/$PRGNAM $WRK
+cd $PRGNAM
 
 chown -R root:root .
 find -L . \
@@ -85,11 +85,11 @@ find -L . \
  -exec chmod 644 {} \;
 
 #Configure:
-./autogen.sh || exit 1
+./autogen.sh
 
 # Build and install:
-make $NUMJOBS || make || exit 1
-make install DESTDIR=$PKG || exit 1
+make $NUMJOBS || make
+make install DESTDIR=$PKG
 
 # Add a documentation directory.  Not all of these files are expected to be
 # present, but listing them ensures that documentation that might appear and

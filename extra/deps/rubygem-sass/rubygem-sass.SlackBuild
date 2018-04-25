@@ -76,7 +76,7 @@ set -e
 
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
-cd $WRK  || exit 1
+cd $WRK
 
 
 DESTDIR=$( ruby -r rbconfig -e '
@@ -116,7 +116,7 @@ gem install \
 	--backtrace \
 	--install-dir $PKG/$DESTDIR \
 	--bindir $PKG/usr/bin \
-	$CWD/$_PRGNAM-$VERSION.gem || exit 1
+	$CWD/$_PRGNAM-$VERSION.gem
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \

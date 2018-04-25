@@ -28,7 +28,7 @@
 
 PRGNAM=upower
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_idnux}
 NUMJOBS=${NUMJOBS:--j7}
 
@@ -109,16 +109,19 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-man-pages \
   --enable-deprecated \
   --build=$TARGET \
-  || exit 1
+
 
 # Build and install:
-make $NUMJOBS || make || exit 1
-make install DESTDIR=$PKG || exit 1
+make $NUMJOBS || make
+make install DESTDIR=$PKG
 
 # Preserve old library link
 ( cd $PKG/usr/lib${LIBDIRSUFFIX};
   ln -s libupower-glib.so.3.0.1 libupower-glib.so.1;
 )
+
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \

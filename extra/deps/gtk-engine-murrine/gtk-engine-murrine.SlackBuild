@@ -76,10 +76,10 @@ set -e
 
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
-cd $WRK  || exit 1
+cd $WRK
 rm -rf $_PRGNAM-$VERSION
-tar xvf $CWD/$_PRGNAM-$VERSION.tar.?z*  || exit 1
-cd $_PRGNAM-$VERSION  || exit 1
+tar xvf $CWD/$_PRGNAM-$VERSION.tar.?z*
+cd $_PRGNAM-$VERSION
 
 chown -R root:root .
 find -L . \
@@ -103,8 +103,8 @@ CXXFLAGS="$SLKCFLAGS" \
   --build=$ARCH-slackware-linux|| exit 1
 
 # Build and install:
-make $NUMJOBS || make || exit 1
-make install DESTDIR=$PKG || exit 1
+make $NUMJOBS || make
+make install DESTDIR=$PKG
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \

@@ -72,10 +72,10 @@ set -e
 
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
-cd $WRK  || exit 1
+cd $WRK
 rm -rf $PRGNAM
-cp -r $CWD/$PRGNAM $WRK || exit 1
-cd $PRGNAM  || exit 1
+cp -r $CWD/$PRGNAM $WRK
+cd $PRGNAM
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -93,15 +93,18 @@ CFLAGS="$SLKCFLAGS" \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --disable-static \
   --disable-debug \
-  --build=$ARCH-slackware-linux || exit 1
+  --build=$ARCH-slackware-linux
 
 # Build and install:
-make $NUMJOBS || make || exit 1
-make install DESTDIR=$PKG || exit 1
+make $NUMJOBS || make
+make install DESTDIR=$PKG
 
 mkdir -p $PKG/etc/X11/xinit
 cat $CWD/xinitrc.xfce > $PKG/etc/X11/xinit/xinitrc.xfce
 chmod 0755 $PKG/etc/X11/xinit/*
+
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \

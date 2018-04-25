@@ -43,18 +43,18 @@ for dir in \
   xfce/libxfce4ui \
   xfce/exo \
   xfce/garcon \
-  xfce/tumbler \
-  xfce/Thunar \
   deps/libwnck3 \
   deps/glade \
   deps/gtksourceview3 \
   xfce/xfce4-panel \
+  xfce/Thunar \
+  xfce/thunar-volman \
+  xfce/tumbler \
   xfce/xfce4-settings \
   xfce/xfce4-session \
   xfce/xfdesktop \
   xfce/xfwm4 \
   xfce/xfce4-appfinder \
-  xfce/thunar-volman \
   deps/upower \
   xfce/xfce4-power-manager \
   xfce/gtk-xfce-engine \
@@ -86,7 +86,7 @@ for dir in \
   panel-plugins/xfce4-whiskermenu-plugin \
   panel-plugins/xfce4-xkb-plugin \
   thunar-plugins/thunar-archive-plugin \
-  deps\taglib \
+  deps/taglib \
   thunar-plugins/thunar-media-tags-plugin \
   ; do
   # Get the package name

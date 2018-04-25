@@ -73,10 +73,10 @@ set -e
 
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
-cd $WRK  || exit 1
+cd $WRK
 rm -rf $_PRGNAM-$VERSION
-tar xvf $CWD/$_PRGNAM-$VERSION.tar.?z*  || exit 1
-cd $_PRGNAM-$VERSION  || exit 1
+tar xvf $CWD/$_PRGNAM-$VERSION.tar.?z*
+cd $_PRGNAM-$VERSION
 
 chown -R root:root .
 find -L . \
@@ -86,11 +86,11 @@ find -L . \
  -exec chmod 644 {} \;
 
 #Configure:
-./autogen.sh --prefix=/usr || exit 1
+./autogen.sh --prefix=/usr
 
 # Build and install:
-make $NUMJOBS || make || exit 1
-make install DESTDIR=$PKG || exit 1
+make $NUMJOBS || make
+make install DESTDIR=$PKG
 
 # Add a documentation directory.  Not all of these files are expected to be
 # present, but listing them ensures that documentation that might appear and
