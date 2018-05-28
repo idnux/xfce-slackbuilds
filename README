@@ -70,6 +70,7 @@ Senarai Paket:
     -  paper-icon-theme
     -  paper-gtk-theme
     -  greybird-gtk-theme
+    -  materia-gtk-theme
   - Dependensi
     -  rubygem-sass
     -  rubygem-sass-listen

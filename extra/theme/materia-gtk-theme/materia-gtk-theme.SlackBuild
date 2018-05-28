@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Slackware build script for greybird-gtk-theme.
+# Slackware build script for materia-gtk-theme.
 #
 # Copyright 2017 Ali Ahmadi, <idnux09@gmail.com>
 # All rights reserved.
@@ -22,8 +22,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-PRGNAM="greybird-gtk-theme"
-_PRGNAM="Greybird"
+PRGNAM="materia-gtk-theme"
+_PRGNAM="materia-theme"
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
 TAG=${TAG:-_idnux}
@@ -85,19 +85,16 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-#Configure:
-./autogen.sh --prefix=/usr
-
 # Build and install:
-make $NUMJOBS || make
-make install DESTDIR=$PKG
+install -d $PKG/usr/share/themes
+./install.sh -d $PKG/usr/share/themes
 
 # Add a documentation directory.  Not all of these files are expected to be
 # present, but listing them ensures that documentation that might appear and
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
 cp -a \
-  LICENSE* README* \
+  COPYING HACKING* README* TODO* \
   $PKG/usr/doc/${PRGNAM}-$VERSION
 
 # If there's a ChangeLog, installing at least part of the recent history

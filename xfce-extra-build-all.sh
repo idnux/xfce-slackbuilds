@@ -48,6 +48,7 @@ for dir in \
   extra/deps/rubygem-sass \
   extra/theme/paper-gtk-theme \
   extra/theme/greybird-gtk-theme \
+  extra/theme/materia-gtk-theme \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f3- -d /)
