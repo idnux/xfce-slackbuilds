@@ -1,0 +1,24 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                     |-----handy-ruler------------------------------------------------------|
+thunar-vcs-plugin: thunar-vcs-plugin
+thunar-vcs-plugin:
+thunar-vcs-plugin: The Thunar VCS Plugin adds Subversion actions to the context menu of thunar.
+thunar-vcs-plugin: This gives a VCS integration to Thunar.
+thunar-vcs-plugin: 
+thunar-vcs-plugin: The current features are:
+thunar-vcs-plugin: - Most of the svn action: add, blame, checkout, cleanup, commit, copy, delete,
+thunar-vcs-plugin:   export, import, lock, log, move, properties, relocate, resolved, revert,
+thunar-vcs-plugin:   status, switch, unlock, update.
+thunar-vcs-plugin: - Subversion info in file properties dialog.
+thunar-vcs-plugin: - Basic git support: add, blame, branch, clean, clone, log, move, reset,
+thunar-vcs-plugin: stash, status. 
+thunar-vcs-plugin:
+thunar-vcs-plugin:
+thunar-vcs-plugin:
+thunar-vcs-plugin:

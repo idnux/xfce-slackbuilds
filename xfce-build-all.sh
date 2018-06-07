@@ -88,6 +88,7 @@ for dir in \
   thunar-plugins/thunar-archive-plugin \
   deps/taglib \
   thunar-plugins/thunar-media-tags-plugin \
+  thunar-plugins/thunar-vcs-plugin \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
