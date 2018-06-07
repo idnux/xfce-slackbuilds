@@ -25,7 +25,7 @@
 
 PRGNAM=thunar-archive-plugin
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_idnux}
 
 # Automatically determine the architecture we're building on:
@@ -102,6 +102,9 @@ CXXFLAGS="$SLKCFLAGS" \
 # Build and install:
 make $NUMJOBS || make
 make install DESTDIR=$PKG
+
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
