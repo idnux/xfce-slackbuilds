@@ -50,8 +50,8 @@ unset DOWNLOAD
 eval `cat $PRGNAM.info | grep "DOWNLOAD="`
 if [ ! -e $(basename $DOWNLOAD) ]; then
   echo "Downloading: $DOWNLOAD"
-  rm -rf $PRGNAM
-  git clone $DOWNLOAD
+  rm -f $PRGNAM-$VERSION.tar.*
+  curl -OLJ -C - $DOWNLOAD
 fi
 
 if [ "$ARCH" = "i586" ]; then
@@ -73,9 +73,9 @@ set -e
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
 cd $WRK
-rm -rf $PRGNAM
-cp -r $CWD/$PRGNAM $WRK
-cd $PRGNAM
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.?z*
+cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -85,7 +85,7 @@ find -L . \
 
 # Configure:
 CFLAGS="$SLKCFLAGS" \
-./autogen.sh \
+./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --sysconfdir=/etc \
@@ -133,7 +133,7 @@ find $PKG/usr/share/icons -type f -name "icon-theme.cache" -exec rm -f {} \;
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
 cp -a \
-  AUTHORS COMPOSITOR COPYING* INSTALL NEWS NOTES \
+  AUTHORS COMPOSITOR COPYING* INSTALL NEWS \
   README* TODO example.gtkrc-2.0 \
   $PKG/usr/doc/${PRGNAM}-$VERSION
 
@@ -152,4 +152,4 @@ cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 echo "Cleaning up build directory"
-cd $WRK; rm -rf $PRGNAM $PKG
+cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
