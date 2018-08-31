@@ -50,8 +50,8 @@ unset DOWNLOAD
 eval `cat $PRGNAM.info | grep "DOWNLOAD="`
 if [ ! -e $(basename $DOWNLOAD) ]; then
   echo "Downloading: $DOWNLOAD"
-  rm -rf $PRGNAM
-  git clone $DOWNLOAD
+  rm -f $PRGNAM-v.$VERSION.tar.*
+  curl -OLJ -C - $DOWNLOAD
 fi
 
 if [ "$ARCH" = "i586" ]; then
@@ -73,10 +73,9 @@ set -e
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
 cd $WRK
-rm -rf $PRGNAM
-cp -r $CWD/$PRGNAM $WRK
-cd $PRGNAM
-
+rm -rf $PRGNAM-v.$VERSION
+tar xvf $CWD/$PRGNAM-v.$VERSION.tar.?z*
+cd $PRGNAM-v.$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -84,12 +83,9 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-#Configure:
-./autogen.sh
-
 # Build and install:
-make $NUMJOBS || make
-make install DESTDIR=$PKG
+meson "build" --prefix=/usr
+DESTDIR=$PKG ninja -C "build" install
 
 # Add a documentation directory.  Not all of these files are expected to be
 # present, but listing them ensures that documentation that might appear and
@@ -115,4 +111,4 @@ cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 echo "Cleaning up build directory"
-cd $WRK; rm -rf $PRGNAM $PKG
+cd $WRK; rm -rf $PRGNAM-v.$VERSION $PKG
