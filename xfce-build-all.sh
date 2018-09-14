@@ -86,7 +86,6 @@ for dir in \
   panel-plugins/xfce4-whiskermenu-plugin \
   panel-plugins/xfce4-xkb-plugin \
   thunar-plugins/thunar-archive-plugin \
-  deps/taglib \
   thunar-plugins/thunar-media-tags-plugin \
   thunar-plugins/thunar-vcs-plugin \
   ; do
