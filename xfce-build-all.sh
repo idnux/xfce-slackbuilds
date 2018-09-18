@@ -68,6 +68,12 @@ for dir in \
   apps/xfce4-terminal \
   apps/xfce4-dict \
   apps/xfce4-volumed-pulse \
+  deps/python-distutils-extra \
+  deps/pyxdg \
+  deps/ptyprocess \
+  deps/pexpect \
+  apps/catfish \
+  apps/xfce4-panel-profiles \
   panel-plugins/xfce4-battery-plugin \
   panel-plugins/xfce4-clipman-plugin \
   panel-plugins/xfce4-cpufreq-plugin \
