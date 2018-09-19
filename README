@@ -7,32 +7,32 @@ Paket-paket yang tersedia dalam lumbung ini merupakan versi pengembangan menuju 
 
 Senarai Paket:
 - Modul inti Xfce:
-  -  Thunar
-  -  exo
-  -  garcon
-  -  gtk-xfce-engine
-  -  libxfce4ui
-  -  libxfce4util
-  -  thunar-volman
-  -  tumbler
-  -  xfce4-appfinder
-  -  xfce4-dev-tools
-  -  xfce4-panel
-  -  xfce4-power-manager
-  -  xfce4-session
-  -  xfce4-settings
-  -  xfconf
-  -  xfdesktop
-  -  xfwm4
+  -  Thunar 1.8.1
+  -  exo 0.12.2
+  -  garcon 0.6.1
+  -  gtk-xfce-engine 3.2.0
+  -  libxfce4ui 4.13.4
+  -  libxfce4util 4.13.2
+  -  thunar-volman 0.9.0
+  -  tumbler 0.2.3
+  -  xfce4-appfinder 4.13.1
+  -  xfce4-dev-tools 4.12.0
+  -  xfce4-panel 4.13.3
+  -  xfce4-power-manager 1.6.1
+  -  xfce4-session 4.13.1
+  -  xfce4-settings 4.13.4
+  -  xfconf 4.13.5
+  -  xfdesktop 4.13.2
+  -  xfwm4 4.13.1
 - Pustaka:
-  -  glade
-  -  gtksourceview3
-  -  libwnck3
-  -  pexpect
-  -  ptyprocess
-  -  python-distutils-extra
-  -  pyxdg
-  -  upower
+  -  glade 3.22.1
+  -  gtksourceview3 3.24.8
+  -  libwnck3 3.24.1
+  -  pexpect 4.6.0
+  -  ptyprocess 0.6.0
+  -  python-distutils-extra 2.39
+  -  pyxdg 0.26
+  -  upower 0.99.8
 - Aplikasi:
   -  catfish
   -  mousepad
