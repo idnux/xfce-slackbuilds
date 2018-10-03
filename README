@@ -34,18 +34,18 @@ Senarai Paket:
   -  pyxdg 0.26
   -  upower 0.99.8
 - Aplikasi:
-  -  catfish
-  -  mousepad
-  -  orage
-  -  parole
-  -  ristretto
-  -  xfce4-dict
-  -  xfce4-notifyd
-  -  xfce4-panel-profiles
-  -  xfce4-screenshooter
-  -  xfce4-taskmanager
-  -  xfce4-terminal
-  -  xfce4-volumed-pulse
+  -  catfish 1.4.6
+  -  mousepad 0.4.1
+  -  orage 4.12.1
+  -  parole 1.0.1
+  -  ristretto 0.8.3
+  -  xfce4-dict 0.8.1
+  -  xfce4-notifyd 0.4.2
+  -  xfce4-panel-profiles 1.0.8
+  -  xfce4-screenshooter 1.9.3
+  -  xfce4-taskmanager 1.2.1
+  -  xfce4-terminal 0.8.7.4
+  -  xfce4-volumed-pulse 0.2.3
 - Colok-masuk panel:
   -  xfce4-battery-plugin
   -  xfce4-clipman-plugin
