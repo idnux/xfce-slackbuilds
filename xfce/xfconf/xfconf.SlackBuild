@@ -93,8 +93,10 @@ CFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --localstatedir=/var \
   --disable-static \
   --disable-debug \
+  --with-perl-options=INSTALLDIRS="vendor" \
   --build=$ARCH-slackware-linux
 
 # Build and install:

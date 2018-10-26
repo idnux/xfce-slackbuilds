@@ -24,7 +24,7 @@
 
 PRGNAM=xfce4-volumed-pulse
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_idnux}
 
 # Automatically determine the architecture we're building on:
@@ -88,7 +88,7 @@ CFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --sysconfdir=/etc/xfce \
+  --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man \
   --enable-debug=no \
