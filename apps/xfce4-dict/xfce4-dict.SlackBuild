@@ -95,7 +95,7 @@ CFLAGS="$SLKCFLAGS" \
   --build=$ARCH-slackware-linux
 
 # Build and install:
-make $NUMJOBS || make
+make $NUMJOBS
 make install DESTDIR=$PKG
 
 # Don't ship .la files:
