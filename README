@@ -21,7 +21,7 @@ Senarai Paket:
   -  xfce4-power-manager 1.6.1
   -  xfce4-session 4.13.1
   -  xfce4-settings 4.13.5
-  -  xfconf 4.13.6
+  -  xfconf 4.13.5
   -  xfdesktop 4.13.2
   -  xfwm4 4.13.1
 - Pustaka:
@@ -71,7 +71,7 @@ Senarai Paket:
 - Aplikasi tambahan
   - Aplikasi
     -  xarchiver
-    -  xfce-polkit
+    -  xfce-polkit 0.3
   - Tema
     -  paper-icon-theme
     -  paper-gtk-theme

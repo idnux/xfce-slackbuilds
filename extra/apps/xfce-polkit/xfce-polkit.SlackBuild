@@ -24,7 +24,7 @@
 
 PRGNAM=xfce-polkit
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_idnux}
 
 # Automatically determine the architecture we're building on:
@@ -92,7 +92,7 @@ automake --add-missing
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --libexecdir=/usr/lib/xfce4-polkit \
+  --libexecdir=/usr/lib${LIBDIRSUFFIX}/xfce4-polkit \
   --sysconfdir=/etc \
   --mandir=/usr/man \
   --localstatedir=/var \
@@ -101,7 +101,7 @@ automake --add-missing
   --build=$ARCH-slackware-linux
 
 # Build and install:
-make $NUMJOBS || make
+make $NUMJOBS
 make install DESTDIR=$PKG
 
 # Don't ship .la files:
