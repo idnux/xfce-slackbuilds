@@ -27,6 +27,7 @@ PRGNAM=xfce4-systemload-plugin
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
 TAG=${TAG:-_idnux}
+NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
 # Automatically determine the architecture we're building on:
 MARCH=$( uname -m )
@@ -39,8 +40,6 @@ if [ -z "$ARCH" ]; then
     *)       export ARCH=$MARCH ;;
   esac
 fi
-
-NUMJOBS=${NUMJOBS:-" -j7 "}
 
 CWD=$(pwd)
 WRK=${WRK:-/tmp/idnux}
@@ -97,7 +96,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --build=$ARCH-slackware-linux
 
 # Build and install:
-make $NUMJOBS || make
+make $NUMJOBS
 make install DESTDIR=$PKG
 
 # Strip binaries:
