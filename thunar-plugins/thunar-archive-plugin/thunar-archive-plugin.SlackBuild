@@ -27,6 +27,7 @@ PRGNAM=thunar-archive-plugin
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-2}
 TAG=${TAG:-_idnux}
+NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
 # Automatically determine the architecture we're building on:
 MARCH=$( uname -m )
@@ -39,8 +40,6 @@ if [ -z "$ARCH" ]; then
     *)       export ARCH=$MARCH ;;
   esac
 fi
-
-NUMJOBS=${NUMJOBS:-" -j7 "}
 
 CWD=$(pwd)
 WRK=${WRK:-/tmp/idnux}
@@ -85,7 +84,7 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Patch to support xarchiver:
-zcat ${CWD}/xarchiver.patch.gz | patch -p1 --verbose
+cat ${CWD}/xarchiver.patch | patch -p1 --verbose
 
 # Configure:
 CFLAGS="$SLKCFLAGS" \
