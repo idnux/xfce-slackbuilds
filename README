@@ -17,7 +17,7 @@ Senarai Paket:
   -  tumbler 0.2.3
   -  xfce4-appfinder 4.13.2
   -  xfce4-dev-tools 4.12.0
-  -  xfce4-panel 4.13.3
+  -  xfce4-panel 4.13.4
   -  xfce4-power-manager 1.6.1
   -  xfce4-session 4.13.1
   -  xfce4-settings 4.13.5
@@ -76,7 +76,7 @@ Senarai Paket:
     -  paper-icon-theme
     -  paper-gtk-theme
     -  greybird-gtk-theme
-    -  materia-gtk-theme
+    -  materia-gtk-theme 20181125
   - Dependensi
     -  rubygem-sass
     -  rubygem-sass-listen
