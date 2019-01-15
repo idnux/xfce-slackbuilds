@@ -75,6 +75,7 @@ for dir in \
   apps/catfish \
   apps/xfce4-panel-profiles \
   panel-plugins/xfce4-battery-plugin \
+  panel-plugins/xfce4-calculator-plugin \
   panel-plugins/xfce4-clipman-plugin \
   panel-plugins/xfce4-cpufreq-plugin \
   panel-plugins/xfce4-datetime-plugin \
