@@ -78,6 +78,7 @@ Senarai Paket:
     -  paper-gtk-theme
     -  greybird-gtk-theme
     -  materia-gtk-theme 20181125
+    -  paper-icon-theme 5.4.0
   - Dependensi
     -  rubygem-sass
     -  rubygem-sass-listen

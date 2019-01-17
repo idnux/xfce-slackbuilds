@@ -49,6 +49,7 @@ for dir in \
   extra/theme/paper-gtk-theme \
   extra/theme/greybird-gtk-theme \
   extra/theme/materia-gtk-theme \
+  extra/theme/moka-icon-theme \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f3- -d /)
