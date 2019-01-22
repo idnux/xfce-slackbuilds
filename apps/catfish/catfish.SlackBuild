@@ -20,11 +20,11 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-# Modified 2017 by Ali Ahmadi <idnux09@gmail.com>.
+# Modified 2018 by Ali, <idnux09@gmail.com>.
 
 PRGNAM=catfish
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_idnux}
 
 # Automatically determine the architecture we're building on:
@@ -38,8 +38,6 @@ if [ -z "$ARCH" ]; then
     *)       export ARCH=$MARCH ;;
   esac
 fi
-
-NUMJOBS=${NUMJOBS:-" -j7 "}
 
 CWD=$(pwd)
 WRK=${WRK:-/tmp/idnux}
@@ -90,6 +88,9 @@ python setup.py install --root=$PKG
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+# Move man to /usr/man
+mv $PKG/usr/share/man/ $PKG/usr/man/
 
 # Compress and if needed symlink the man pages:
 if [ -d $PKG/usr/man ]; then
