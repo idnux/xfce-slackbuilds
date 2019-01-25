@@ -21,12 +21,13 @@
 #  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-# Modified 2017 by Ali Ahmadi <idnux09@gmail.com>.
+# Modified 2017 by Ali <idnux09@gmail.com>.
 
 PRGNAM=tumbler
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
-TAG=${TAG:-_idnux}
+TAG=${TAG:-_idn}
+NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
 # Automatically determine the architecture we're building on:
 MARCH=$( uname -m )
@@ -39,8 +40,6 @@ if [ -z "$ARCH" ]; then
     *)       export ARCH=$MARCH ;;
   esac
 fi
-
-NUMJOBS=${NUMJOBS:--j6}
 
 CWD=$(pwd)
 WRK=${WRK:-/tmp/idnux}
@@ -77,6 +76,7 @@ cd $WRK
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.?z*
 cd $PRGNAM-$VERSION
+
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -102,7 +102,7 @@ CFLAGS="$SLKCFLAGS" \
   --build=$ARCH-slackware-linux
 
 # Build and install:
-make $NUMJOBS || make
+make $NUMJOBS
 make install DESTDIR=$PKG
 
 # Don't ship .la files:

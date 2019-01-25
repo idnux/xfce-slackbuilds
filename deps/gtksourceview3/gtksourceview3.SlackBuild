@@ -29,7 +29,7 @@ PRGNAM=gtksourceview3
 SRCNAM=gtksourceview
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
-TAG=${TAG:-_idnux}
+TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
 # Automatically determine the architecture we're building on:
@@ -79,6 +79,7 @@ cd $WRK
 rm -rf $SRCNAM-$VERSION
 tar xvf $CWD/$SRCNAM-$VERSION.tar.?z*
 cd $SRCNAM-$VERSION
+
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -102,7 +103,7 @@ CXXFLAGS="$SLKCFLAGS" \
 # Build and install:
 # At the end of build process, the uninstalled gtksourceview.pc is
 # used.  Let's make sure pkg-config can find it.
-PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$TMP/$PRGNAM-$VERSION make ${NUMJOBS}
+PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$WRK/$PRGNAM-$VERSION make ${NUMJOBS}
 make install-strip DESTDIR=$PKG
 
 # Don't ship .la files:
