@@ -23,10 +23,10 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM="materia-gtk-theme"
-_PRGNAM="materia-theme"
+SRCNAM="materia-theme"
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
-TAG=${TAG:-_idnux}
+TAG=${TAG:-_idn}
 
 # Automatically determine the architecture we're building on:
 MARCH=$( uname -m )
@@ -49,7 +49,7 @@ unset DOWNLOAD
 eval `cat $PRGNAM.info | grep "DOWNLOAD="`
 if [ ! -e $(basename $DOWNLOAD) ]; then
   echo "Downloading: $DOWNLOAD"
-  rm -f $_PRGNAM-$VERSION.tar.*
+  rm -f $SRCNAM-$VERSION.tar.*
   curl -OLJ -C - $DOWNLOAD
 fi
 
@@ -72,9 +72,9 @@ set -e
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
 cd $WRK
-rm -rf $_PRGNAM-$VERSION
-tar xvf $CWD/$_PRGNAM-$VERSION.tar.?z*
-cd $_PRGNAM-$VERSION
+rm -rf $SRCNAM-$VERSION
+tar xvf $CWD/$SRCNAM-$VERSION.tar.?z*
+cd $SRCNAM-$VERSION
 
 chown -R root:root .
 find -L . \
@@ -111,4 +111,4 @@ cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 echo "Cleaning up build directory"
-cd $WRK; rm -rf $_PRGNAM-$VERSION $PKG
+cd $WRK; rm -rf $SRCNAM-$VERSION $PKG

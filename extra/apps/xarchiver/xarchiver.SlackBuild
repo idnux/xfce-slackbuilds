@@ -27,7 +27,7 @@
 PRGNAM=xarchiver
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
-TAG=${TAG:-_idnux}
+TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
 # Automatically determine the architecture we're building on:

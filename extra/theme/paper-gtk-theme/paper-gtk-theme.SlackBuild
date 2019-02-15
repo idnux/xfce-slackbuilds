@@ -25,7 +25,8 @@
 PRGNAM="paper-gtk-theme"
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
-TAG=${TAG:-_idnux}
+TAG=${TAG:-_idn}
+NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
 # Automatically determine the architecture we're building on:
 MARCH=$( uname -m )
@@ -38,8 +39,6 @@ if [ -z "$ARCH" ]; then
     *)       export ARCH=$MARCH ;;
   esac
 fi
-
-NUMJOBS=${NUMJOBS:-" -j7 "}
 
 CWD=$(pwd)
 WRK=${WRK:-/tmp/idnux}
@@ -88,7 +87,7 @@ find -L . \
 ./autogen.sh
 
 # Build and install:
-make $NUMJOBS || make
+make $NUMJOBS
 make install DESTDIR=$PKG
 
 # Add a documentation directory.  Not all of these files are expected to be
