@@ -43,7 +43,7 @@ fi
 NUMJOBS=${NUMJOBS:-" -j7 "}
 
 CWD=$(pwd)
-WRK=${WRK:-/tmp/idnux}
+WRK=${WRK:-/tmp/idn}
 PKG=$WRK/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 

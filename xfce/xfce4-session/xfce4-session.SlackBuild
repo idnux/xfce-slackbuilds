@@ -42,7 +42,7 @@ if [ -z "$ARCH" ]; then
 fi
 
 CWD=$(pwd)
-WRK=${WRK:-/tmp/idnux}
+WRK=${WRK:-/tmp/idn}
 PKG=$WRK/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
