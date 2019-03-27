@@ -63,6 +63,7 @@ for dir in \
   apps/parole \
   apps/ristretto \
   apps/xfce4-notifyd \
+  apps/xfce4-screensaver \
   apps/xfce4-screenshooter \
   apps/xfce4-taskmanager \
   apps/xfce4-terminal \

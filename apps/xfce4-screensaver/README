@@ -1,0 +1,8 @@
+xfce4-screensaver is a screen saver and locker that aims to have
+simple, sane, secure defaults and be well integrated with the desktop.
+
+This project is a port of [MATE Screensaver](https://github.com/mate-desktop/mate-screensaver),
+itself a port of [GNOME Screensaver](https://gitlab.gnome.org/Archive/gnome-screensaver).
+It has been tightly integrated with the Xfce desktop, utilizing Xfce
+libraries and the Xfconf configuration backend.
+
