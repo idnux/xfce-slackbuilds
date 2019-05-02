@@ -8,7 +8,7 @@ Paket-paket yang tersedia dalam lumbung ini merupakan versi pengembangan menuju 
 Senarai Paket:
 - Modul inti Xfce:
   -  Thunar 1.8.2
-  -  exo 0.12.4
+  -  exo 0.12.5
   -  garcon 0.6.2
   -  gtk-xfce-engine 3.2.0
   -  libxfce4ui 4.13.4
@@ -40,7 +40,7 @@ Senarai Paket:
   -  parole 1.0.2
   -  ristretto 0.8.4
   -  xfce4-dict 0.8.2
-  -  xfce4-notifyd 0.4.3
+  -  xfce4-notifyd 0.4.4
   -  xfce4-panel-profiles 1.0.8
   -  xfce-screensaver 0.1.4
   -  xfce4-screenshooter 1.9.3
