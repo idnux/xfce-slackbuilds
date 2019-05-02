@@ -85,6 +85,7 @@ for dir in \
   panel-plugins/xfce4-genmon-plugin \
   panel-plugins/xfce4-mount-plugin \
   panel-plugins/xfce4-netload-plugin \
+  panel-plugins/xfce4-places-plugin \
   panel-plugins/xfce4-pulseaudio-plugin \
   panel-plugins/xfce4-sensors-plugin \
   panel-plugins/xfce4-smartbookmark-plugin \

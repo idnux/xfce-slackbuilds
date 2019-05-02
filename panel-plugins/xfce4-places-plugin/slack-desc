@@ -1,0 +1,20 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+                    |-----handy-ruler------------------------------------------------------|
+xfce4-places-plugin: xfce4-places-plugin (places plugin for the Xfce panel)
+xfce4-places-plugin:
+xfce4-places-plugin: This xfce4-places plugin is a menu with quick access to folders, documents, 
+xfce4-places-plugin: and removable media. The places plugin brings much of the functionality of 
+xfce4-places-plugin: GNOME's Places menu to Xfce. 
+xfce4-places-plugin:
+xfce4-places-plugin: Homepage : http://goodies.xfce.org/projects/panel-plugins/xfce4-places-plugin
+xfce4-places-plugin:
+xfce4-places-plugin:
+xfce4-places-plugin:
+xfce4-places-plugin:
+xfce4-places-plugin:
