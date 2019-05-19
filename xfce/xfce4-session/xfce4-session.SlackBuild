@@ -25,7 +25,7 @@
 
 PRGNAM=xfce4-session
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-3}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
@@ -84,7 +84,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-# Patch to support light-locker and xfce4-screensaver:
+# Patch to support light-locker:
 cat ${CWD}/xflock4.patch | patch -p1 --verbose
 
 # Configure:
