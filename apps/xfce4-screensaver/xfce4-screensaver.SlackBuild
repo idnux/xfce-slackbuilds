@@ -86,14 +86,15 @@ find -L . \
 # Configur, build, and install:
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
-./autogen.sh \
+./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --libexecdir=/usr/lib${LIBDIRSUFFIX}/xfce4 \
   --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man \
-  --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --with-doc-dir=/usr/doc \
+  --enable-docbook-docs \
   --disable-debug \
   --disable-dependency-tracking \
   --build=$ARCH-slackware-linux
@@ -146,4 +147,4 @@ cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 echo "Cleaning up build directory"
-cd $WRK; rm -rf $PRGNAM-$VERSION 
+cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
