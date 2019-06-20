@@ -79,6 +79,7 @@ for dir in \
   panel-plugins/xfce4-calculator-plugin \
   panel-plugins/xfce4-clipman-plugin \
   panel-plugins/xfce4-cpufreq-plugin \
+  panel-plugins/xfce4-cpugraph-plugin \
   panel-plugins/xfce4-datetime-plugin \
   panel-plugins/xfce4-diskperf-plugin \
   panel-plugins/xfce4-fsguard-plugin \

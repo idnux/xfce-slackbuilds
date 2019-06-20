@@ -1,0 +1,8 @@
+xfce4-cpugraph-plugin offers multiple display modes (LED, gradient, fire,
+etc…) to show the current CPU load of the system. Various appearance
+options, like colors or size, are customizable.
+
+On multi core or multi CPU systems, CPU Graph can either track and display
+all of them at once, or at the user's option only a specific core or CPU. 
+
+
