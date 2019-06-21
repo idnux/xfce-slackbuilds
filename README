@@ -27,6 +27,8 @@ Senarai Paket:
 - Pustaka:
   -  glade 3.22.1
   -  gtksourceview3 3.24.9
+  -  libburn 1.5.0
+  -  libisofs 1.5.0
   -  libwnck3 3.30.0
   -  pexpect 4.6.0
   -  ptyprocess 0.6.0
@@ -39,6 +41,7 @@ Senarai Paket:
   -  orage 4.12.1
   -  parole 1.0.2
   -  ristretto 0.8.4
+  -  xfburn 0.5.5
   -  xfce4-dict 0.8.2
   -  xfce4-notifyd 0.4.4
   -  xfce4-panel-profiles 1.0.8
