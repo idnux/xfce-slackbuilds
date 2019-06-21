@@ -69,6 +69,9 @@ for dir in \
   apps/xfce4-terminal \
   apps/xfce4-dict \
   apps/xfce4-volumed-pulse \
+  deps/libisofs \
+  deps/libburn \
+  apps/xfburn \
   deps/python-distutils-extra \
   deps/pyxdg \
   deps/ptyprocess \
