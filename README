@@ -54,9 +54,9 @@ Senarai Paket:
   -  xfce4-battery-plugin 1.1.2
   -  xfce4-calculator-plugin 0.7.0
   -  xfce4-clipman-plugin 1.4.3
-  -  xfce4-cpufreq-plugin
+  -  xfce4-cpufreq-plugin 1.2.1
   -  xfce4-cpugraph-plugin 1.0.91
-  -  xfce4-datetime-plugin
+  -  xfce4-datetime-plugin 0.7.1
   -  xfce4-diskperf-plugin 2.6.1
   -  xfce4-fsguard-plugin
   -  xfce4-genmon-plugin
@@ -77,7 +77,7 @@ Senarai Paket:
   -  thunar-vcs-plugin
 - Aplikasi tambahan
   - Aplikasi
-    -  xarchiver
+    -  xarchiver 0.5.4.14
     -  xfce-polkit 0.3
   - Tema
     -  paper-icon-theme

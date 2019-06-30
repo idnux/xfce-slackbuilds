@@ -25,7 +25,7 @@
 
 PRGNAM=xfce4-datetime-plugin
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
@@ -84,7 +84,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-# Configure:
+# Configure, build. and install:
 CFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
@@ -95,7 +95,6 @@ CFLAGS="$SLKCFLAGS" \
   --enable-debug=no \
   --build=$ARCH-slackware-linux
 
-# Build and install:
 make $NUMJOBS
 make install DESTDIR=$PKG
 
@@ -124,7 +123,7 @@ fi
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   AUTHORS ChangeLog COPYING INSTALL NEWS README THANKS \
-    $PKG/usr/doc/$PRGNAM-$VERSION
+  $PKG/usr/doc/$PRGNAM-$VERSION
 
 # If there's a ChangeLog, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
