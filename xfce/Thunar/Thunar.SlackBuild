@@ -84,7 +84,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-# Configure:
+# Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
@@ -102,7 +102,6 @@ CFLAGS="$SLKCFLAGS" \
   --disable-debug \
   --build=$ARCH-slackware-linux
 
-# Build and install:
 make $NUMJOBS
 make install DESTDIR=$PKG
 
@@ -136,8 +135,7 @@ find $PKG/usr/share/icons -type f -name "icon-theme.cache" -exec rm -f {} \;
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
 cp -a \
-  AUTHORS COPYING* FAQ HACKING INSTALL NEWS \
-  README* THANKS TODO \
+  AUTHORS COPYING* FAQ HACKING INSTALL NEWS README* THANKS TODO \
   $PKG/usr/doc/${PRGNAM}-$VERSION
 
 # If there's a ChangeLog, installing at least part of the recent history
