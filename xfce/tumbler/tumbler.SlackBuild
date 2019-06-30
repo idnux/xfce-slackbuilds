@@ -89,7 +89,7 @@ if [ ! -x configure ]; then
   ./autogen.sh
 fi
 
-# Configure:
+# Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
@@ -101,7 +101,6 @@ CFLAGS="$SLKCFLAGS" \
   --disable-debug \
   --build=$ARCH-slackware-linux
 
-# Build and install:
 make $NUMJOBS
 make install DESTDIR=$PKG
 
