@@ -99,6 +99,7 @@ for dir in \
   panel-plugins/xfce4-whiskermenu-plugin \
   panel-plugins/xfce4-xkb-plugin \
   deps/libunique \
+  panel-plugins/xfce4-notes-plugin \
   thunar-plugins/thunar-archive-plugin \
   thunar-plugins/thunar-media-tags-plugin \
   thunar-plugins/thunar-vcs-plugin \
