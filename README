@@ -80,18 +80,18 @@ Senarai Paket:
     -  xarchiver 0.5.4.14
     -  xfce-polkit 0.3
   - Tema
-    -  paper-icon-theme
-    -  paper-gtk-theme
-    -  greybird-gtk-theme
+    -  paper-icon-theme 1.5.0
+    -  paper-gtk-theme git.20180127
+    -  greybird-gtk-theme 3.22.8
     -  materia-gtk-theme 20190315
-    -  paper-icon-theme 5.4.0
+    -  moka-icon-theme 5.4.0
   - Dependensi
-    -  rubygem-sass
-    -  rubygem-sass-listen
-    -  rubygem-rb-fsevent
-    -  rubygem-rb-inotify
-    -  rubygem-ffi
-    -  gtk-engine-murrine
+    -  rubygem-sass 3.5.7
+    -  rubygem-sass-listen 4.0.0
+    -  rubygem-rb-fsevent 0.10.3
+    -  rubygem-rb-inotify 0.9.10
+    -  rubygem-ffi 1.9.25
+    -  gtk-engine-murrine 0.98.2
 
 
 Sila digunakan dengan bebas, namun tidak ada jaminan paket yang dihasilkan dapat bekerja di sistem milik anda.
