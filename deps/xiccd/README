@@ -1,0 +1,9 @@
+xiccd
+
+xiccd is a simple bridge between colord and X. It does the following tasks:
+
+ * Enumerates displays and register them in colord;
+ * Creates default ICC profiles based on EDID data;
+ * Applies ICC profiles provided by colord;
+ * Maintains user's private ICC storage directory.
+

@@ -54,6 +54,7 @@ for dir in \
   deps/argyllcms \
   deps/libgusb \
   deps/colord \
+  deps/xiccd \
   xfce/xfce4-settings \
   xfce/xfce4-session \
   xfce/xfdesktop \
