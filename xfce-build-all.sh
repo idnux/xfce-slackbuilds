@@ -50,6 +50,7 @@ for dir in \
   xfce/Thunar \
   xfce/thunar-volman \
   xfce/tumbler \
+  deps/ftjam \
   xfce/xfce4-settings \
   xfce/xfce4-session \
   xfce/xfdesktop \
