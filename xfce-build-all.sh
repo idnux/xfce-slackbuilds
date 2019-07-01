@@ -51,6 +51,7 @@ for dir in \
   xfce/thunar-volman \
   xfce/tumbler \
   deps/ftjam \
+  deps/argyllcms \
   xfce/xfce4-settings \
   xfce/xfce4-session \
   xfce/xfdesktop \

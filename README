@@ -25,6 +25,7 @@ Senarai Paket:
   -  xfdesktop 4.13.5
   -  xfwm4 4.13.3
 - Pustaka:
+  -  argyllcms 2.1.1
   -  ftjam 2.5.2
   -  glade 3.22.1
   -  gtksourceview3 3.24.9
