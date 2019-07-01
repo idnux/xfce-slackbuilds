@@ -30,6 +30,7 @@ Senarai Paket:
   -  glade 3.22.1
   -  gtksourceview3 3.24.9
   -  libburn 1.5.0
+  -  libgusb 0.3.0
   -  libisofs 1.5.0
   -  libunique 1.1.6
   -  libwnck3 3.30.0

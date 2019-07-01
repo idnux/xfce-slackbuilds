@@ -52,6 +52,7 @@ for dir in \
   xfce/tumbler \
   deps/ftjam \
   deps/argyllcms \
+  deps/libgusb \
   xfce/xfce4-settings \
   xfce/xfce4-session \
   xfce/xfdesktop \
