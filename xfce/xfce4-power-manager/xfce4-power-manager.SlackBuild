@@ -97,7 +97,8 @@ CXXFLAGS="$SLKCFLAGS" \
   --localstatedir=/var \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --disable-network-manager \
+  --enable-network-manager \
+  --enable-panel-plugins \
   --enable-polkit \
   --disable-debug \
   --build=$ARCH-slackware-linux

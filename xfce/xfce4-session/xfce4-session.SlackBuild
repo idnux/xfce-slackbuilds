@@ -87,8 +87,9 @@ find -L . \
 # Patch to support light-locker:
 cat ${CWD}/xflock4.patch | patch -p1 --verbose
 
-# Configure:
+# Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
@@ -99,16 +100,15 @@ CFLAGS="$SLKCFLAGS" \
   --disable-debug \
   --build=$ARCH-slackware-linux
 
-# Build and install:
 make $NUMJOBS
 make install DESTDIR=$PKG
-
-# Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Compress and if needed symlink the man pages:
 if [ -d $PKG/usr/man ]; then
