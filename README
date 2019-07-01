@@ -26,6 +26,7 @@ Senarai Paket:
   -  xfwm4 4.13.3
 - Pustaka:
   -  argyllcms 2.1.1
+  -  colord 1.4.4
   -  ftjam 2.5.2
   -  glade 3.22.1
   -  gtksourceview3 3.24.9

@@ -53,6 +53,7 @@ for dir in \
   deps/ftjam \
   deps/argyllcms \
   deps/libgusb \
+  deps/colord \
   xfce/xfce4-settings \
   xfce/xfce4-session \
   xfce/xfdesktop \
