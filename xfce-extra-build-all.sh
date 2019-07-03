@@ -26,7 +26,7 @@
 INST=1
 
 # This is where all the compilation and final results will be placed
-TMP=${TMP:-/tmp/idnux}
+TMP=${TMP:-/tmp/idn}
 OUTPUT=${OUTPUT:-/tmp}
 
 # This is the original directory where you started this script
