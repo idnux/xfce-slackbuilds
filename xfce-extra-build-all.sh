@@ -19,7 +19,7 @@
 #  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#  Modified 2017 by Ali Ahmadi.
+#  Modified 2017 by Ali.
 
 # Set to 1 if you'd like to install/upgrade package as they are built.
 # This is recommended.
@@ -77,7 +77,7 @@ for dir in \
   # The real build starts here
   TMP=$TMP OUTPUT=$OUTPUT sh ${package}.SlackBuild || exit 1
   if [ "$INST" = "1" ]; then
-    PACKAGE=$(ls $OUTPUT/${package}-${version}-*-${build}*idnux.txz 2>/dev/null)
+    PACKAGE=$(ls $OUTPUT/${package}-${version}-*-${build}*idn.txz 2>/dev/null)
     if [ -f "$PACKAGE" ]; then
       upgradepkg --install-new --reinstall "$PACKAGE"
     else

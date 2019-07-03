@@ -19,14 +19,14 @@
 #  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#  Modified 2017 by Ali Ahmadi.
+#  Modified 2017 by Ali.
 
 # Set to 1 if you'd like to install/upgrade package as they are built.
 # This is recommended.
 INST=1
 
 # This is where all the compilation and final results will be placed
-TMP=${TMP:-/tmp/idnux}
+TMP=${TMP:-/tmp/idn}
 OUTPUT=${OUTPUT:-/tmp}
 
 # This is the original directory where you started this script
