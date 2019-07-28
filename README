@@ -34,7 +34,7 @@ Senarai Paket:
   -  libgusb 0.3.0
   -  libisofs 1.5.0
   -  libunique 1.1.6
-  -  libwnck3 3.30.0
+  -  libwnck3 3.32.0
   -  pexpect 4.6.0
   -  ptyprocess 0.6.0
   -  python-distutils-extra 2.39
