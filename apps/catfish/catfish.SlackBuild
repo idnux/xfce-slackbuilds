@@ -83,7 +83,7 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Build and install:
-python setup.py install --root=$PKG
+python3 setup.py install --root=$PKG
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
@@ -111,7 +111,9 @@ fi
 # present, but listing them ensures that documentation that might appear and
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING INSTALL PKG-INFO README* $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a \
+  AUTHORS COPYING INSTALL PKG-INFO README* \
+  $PKG/usr/doc/$PRGNAM-$VERSION
 
 # If there's a ChangeLog, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
