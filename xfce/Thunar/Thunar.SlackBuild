@@ -86,6 +86,7 @@ find -L . \
 
 # Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
@@ -105,12 +106,12 @@ CFLAGS="$SLKCFLAGS" \
 make $NUMJOBS
 make install DESTDIR=$PKG
 
-# Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
-
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Compress and if needed symlink the man pages:
 if [ -d $PKG/usr/man ]; then
