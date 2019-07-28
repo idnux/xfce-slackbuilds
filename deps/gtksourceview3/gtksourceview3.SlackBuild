@@ -87,7 +87,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-# Configure:
+# Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
@@ -100,18 +100,15 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-glade-catalog \
   --build=$ARCH-slackware-linux
 
-# Build and install:
-# At the end of build process, the uninstalled gtksourceview.pc is
-# used.  Let's make sure pkg-config can find it.
 PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$WRK/$PRGNAM-$VERSION make ${NUMJOBS}
 make install-strip DESTDIR=$PKG
-
-# Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Compress and if needed symlink the man pages:
 if [ -d $PKG/usr/man ]; then
@@ -132,7 +129,7 @@ fi
 # present, but listing them ensures that documentation that might appear and
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING* HACKING MAINTAINERS NEWS README \
+cp -a AUTHORS COPYING HACKING MAINTAINERS NEWS README \
   $PKG/usr/doc/$PRGNAM-$VERSION
 
 # If there's a ChangeLog, installing at least part of the recent history
