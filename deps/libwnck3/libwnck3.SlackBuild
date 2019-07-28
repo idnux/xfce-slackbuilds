@@ -94,7 +94,7 @@ meson "build" \
     -Dintrospection=enabled \
     -Dgtk_doc=true
 
-ninja -C "build"
+ninja -C "build" $NUMJOBS
 DESTDIR=$PKG ninja -C "build" install
 
 mv $PKG/usr/bin/wnckprop $PKG/usr/bin/wnckprop3
