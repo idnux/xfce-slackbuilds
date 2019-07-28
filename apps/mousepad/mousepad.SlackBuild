@@ -25,7 +25,7 @@
 
 PRGNAM=mousepad
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
@@ -87,7 +87,7 @@ find -L . \
 # upstream patch modified to apply to distrib'd source tarball
 zcat $CWD/Add-utempter-support.patch.gz | patch -p1 --verbose
 
-# Configure:
+# Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
@@ -99,16 +99,15 @@ CXXFLAGS="$SLKCFLAGS" \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --build=$ARCH-slackware-linux
 
-# Build and install:
 make $NUMJOBS
 make install DESTDIR=$PKG
 
-# Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
-
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
-  | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Compress and if needed symlink the man pages:
 if [ -d $PKG/usr/man ]; then
