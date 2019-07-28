@@ -99,7 +99,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --disable-dependency-tracking \
   --build=$ARCH-slackware-linux
 
-sed -i -e '/\$CC/s/-shared/\0 -Wl,--as-needed/' libtool
 make $NUMJOBS
 make install DESTDIR=$PKG
 
@@ -149,3 +148,4 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
+
