@@ -85,7 +85,6 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Configure, build, and install:
-GEONAMES_USERNAME="slackware" \
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
@@ -143,3 +142,4 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
+
