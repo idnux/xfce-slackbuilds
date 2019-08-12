@@ -84,7 +84,6 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Configure:
-GEONAMES_USERNAME="slackware" \
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
