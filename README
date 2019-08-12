@@ -93,7 +93,7 @@ Senarai Paket:
     -  materia-gtk-theme 20190315
     -  moka-icon-theme 5.4.0
   - Dependensi
-    -  rubygem-sass 3.5.7
+    -  rubygem-sass 3.7.4
     -  rubygem-sass-listen 4.0.0
     -  rubygem-rb-fsevent 0.10.3
     -  rubygem-rb-inotify 0.10.0
