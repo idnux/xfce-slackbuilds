@@ -40,8 +40,6 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-NUMJOBS=${NUMJOBS:-" -j7 "}
-
 CWD=$(pwd)
 WRK=${WRK:-/tmp/idn}
 PKG=$WRK/package-$PRGNAM
@@ -74,7 +72,6 @@ set -e
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
 cd $WRK
-
 
 DESTDIR=$( ruby -r rbconfig -e '
 include RbConfig
@@ -159,3 +156,4 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
+

@@ -97,7 +97,7 @@ Senarai Paket:
     -  rubygem-sass-listen 4.0.0
     -  rubygem-rb-fsevent 0.10.3
     -  rubygem-rb-inotify 0.9.10
-    -  rubygem-ffi 1.9.25
+    -  rubygem-ffi 1.11.1
     -  gtk-engine-murrine 0.98.2
 
 
