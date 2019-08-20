@@ -82,6 +82,7 @@ for dir in \
   deps/ptyprocess \
   deps/pexpect \
   apps/catfish \
+  apps/gigolo \
   apps/xfce4-panel-profiles \
   panel-plugins/xfce4-battery-plugin \
   panel-plugins/xfce4-calculator-plugin \
