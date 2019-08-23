@@ -129,7 +129,8 @@ fi
 # present, but listing them ensures that documentation that might appear and
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING HACKING MAINTAINERS NEWS README \
+cp -a \
+  AUTHORS COPYING HACKING MAINTAINERS NEWS README \
   $PKG/usr/doc/$PRGNAM-$VERSION
 
 # If there's a ChangeLog, installing at least part of the recent history
@@ -140,8 +141,12 @@ if [ -r ChangeLog ]; then
   touch -r ChangeLog $DOCSDIR/ChangeLog
 fi
 
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $SRCNAM-$VERSION $PKG
+
