@@ -6,9 +6,11 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
          |-----handy-ruler------------------------------------------------------|
-xfce4-polkit: xfce4-polkit
-xfce4-polkit:
-xfce4-polkit: xfce4-polkit is a simple PolicyKit authentication agent for XFCE.
-xfce4-polkit:
-xfce4-polkit: Homepage: https://github.com/ncopa/xfce-polkit
-xfce4-polkit:
+xfce-polkit: xfce-polkit
+xfce-polkit:
+xfce-polkit: xfce-polkit is a simple PolicyKit authentication agent for XFCE.
+xfce-polkit:
+xfce-polkit: Homepage: https://github.com/ncopa/xfce-polkit
+xfce-polkit:
+xfce-polkit:
+xfce-polkit:
