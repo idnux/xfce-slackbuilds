@@ -78,7 +78,6 @@ for dir in \
   deps/libburn \
   apps/xfburn \
   deps/python-distutils-extra \
-  deps/pyxdg \
   deps/ptyprocess \
   deps/pexpect \
   apps/catfish \
