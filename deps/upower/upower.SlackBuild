@@ -87,7 +87,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-# Configure:
+# Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
@@ -100,10 +100,8 @@ CXXFLAGS="$SLKCFLAGS" \
   --disable-static \
   --enable-man-pages \
   --enable-deprecated \
-  --build=$TARGET \
+  --build=$ARCH-slackware-linux \
 
-
-# Build and install:
 make $NUMJOBS
 make install DESTDIR=$PKG
 
@@ -112,12 +110,12 @@ make install DESTDIR=$PKG
   ln -s libupower-glib.so.3.0.1 libupower-glib.so.1;
 )
 
-# Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
-
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Don't clobber the config file on upgrades
 mv $PKG/etc/UPower/UPower.conf $PKG/etc/UPower/UPower.conf.new
@@ -162,3 +160,4 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
+
