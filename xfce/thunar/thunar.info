@@ -1,4 +1,4 @@
-PRGNAM="Thunar"
+PRGNAM="thunar"
 VERSION="1.8.10"
 HOMEPAGE="http://www.xfce.org/"
 DOWNLOAD="http://archive.xfce.org/src/xfce/thunar/1.8/thunar-1.8.10.tar.bz2"

@@ -5,6 +5,6 @@ DOWNLOAD="http://archive.xfce.org/src/xfce/thunar-volman/0.9/thunar-volman-0.9.5
 MD5SUM="f9ef39ed4bbff05eb74058dfff24dd84"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="Thunar"
+REQUIRES="thunar"
 MAINTAINER="Ali"
 EMAIL="idnux09@gmail.com"

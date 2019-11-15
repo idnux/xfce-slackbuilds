@@ -47,7 +47,7 @@ for dir in \
   deps/glade \
   deps/gtksourceview3 \
   xfce/xfce4-panel \
-  xfce/Thunar \
+  xfce/thunar \
   xfce/thunar-volman \
   xfce/tumbler \
   deps/ftjam \
