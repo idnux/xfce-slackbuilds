@@ -49,6 +49,7 @@ for dir in \
   xfce/xfce4-panel \
   xfce/thunar \
   xfce/thunar-volman \
+  deps/ffmpegthumbnailer \
   xfce/tumbler \
   deps/ftjam \
   deps/argyllcms \

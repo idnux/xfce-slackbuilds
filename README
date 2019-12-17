@@ -27,6 +27,7 @@ Senarai Paket:
 - Pustaka:
   -  argyllcms 2.1.1
   -  colord 1.4.4
+  -  ffmpegthumbnailer 2.2.2
   -  ftjam 2.5.2
   -  glade 3.22.1
   -  gtksourceview3 3.24.11
