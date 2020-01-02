@@ -89,7 +89,7 @@ python3 setup.py install --root=$PKG
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-# Move manpages to proper location
+# Move manpages to proper location:
 mv $PKG/usr/share/man/ $PKG/usr
 
 # Compress and if needed symlink the man pages:

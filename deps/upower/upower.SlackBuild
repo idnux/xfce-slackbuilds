@@ -105,7 +105,7 @@ CXXFLAGS="$SLKCFLAGS" \
 make $NUMJOBS
 make install DESTDIR=$PKG
 
-# Preserve old library link
+# Preserve old library link:
 ( cd $PKG/usr/lib${LIBDIRSUFFIX};
   ln -s libupower-glib.so.3.0.1 libupower-glib.so.1;
 )
