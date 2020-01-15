@@ -5,16 +5,15 @@
 # exactly 11 lines for the formatting to be correct.  It's also customary to
 # leave one space after the ':'.
 
-             |-----handy-ruler------------------------------------------------------|
-xfce4-panel-profiles: xfce4-panel-profiles (xfce4-panel-profiles, formerly known as 
-xfce4-panel-profiles: xfpanel-switch) is a simple application to manage Xfce panel 
-
+                    |-----handy-ruler------------------------------------------------------|
+xfce4-panel-profiles: xfce4-panel-profiles
+xfce4-panel-profiles: xfce4-panel-profiles is a simple application to manage Xfce panel
 xfce4-panel-profiles: layouts.
 xfce4-panel-profiles:
-xfce4-panel-profiles: With the modular Xfce Panel, a multitude of panel layouts can
-xfce4-panel-profiles: be created.
-xfce4-panel-profiles: This tool makes it possible to backup, restore, import, and
-xfce4-panel-profiles: export these panel layouts.
+xfce4-panel-profiles: With the modular Xfce Panel, a multitude of panel layouts can be
+xfce4-panel-profiles: created.
+xfce4-panel-profiles: This tool makes it possible to backup, restore, import, and export
+xfce4-panel-profiles: these panel layouts.
 xfce4-panel-profiles:
 xfce4-panel-profiles:
 xfce4-panel-profiles: Homepage: https://git.xfce.org/apps/xfce4-panel-profiles
