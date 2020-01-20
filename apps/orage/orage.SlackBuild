@@ -84,10 +84,10 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-cat $CWD/orage.libical3.diff | patch -p1 --verbose
+# Apply patch:
+cat $CWD/patches/orage.libical3.diff | patch -p1 --verbose
 
-# Yes, libical's pkgconfig file is incomplete, it seems
-# Configure:
+# Configure, build, and install:
 CFLAGS="$SLKCFLAGS -I/usr/include/libical" \
 CXXFLAGS="$SLKCFLAGS -I/usr/include/libical" \
 ./configure \
@@ -100,16 +100,15 @@ CXXFLAGS="$SLKCFLAGS -I/usr/include/libical" \
   --disable-debug \
   --build=$ARCH-slackware-linux
 
-# Build and install:
 make $NUMJOBS
 make install DESTDIR=$PKG
-
-# Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Compress and link manpages, if any:
 if [ -d $PKG/usr/man ]; then
@@ -150,3 +149,4 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
+

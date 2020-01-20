@@ -5,15 +5,14 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':'.
 
-                    |-----handy-ruler------------------------------------------------------|
+                   |-----handy-ruler------------------------------------------------------|
 xfce4-places-plugin: xfce4-places-plugin (places plugin for the Xfce panel)
 xfce4-places-plugin:
-xfce4-places-plugin: This xfce4-places plugin is a menu with quick access to folders, documents, 
-xfce4-places-plugin: and removable media. The places plugin brings much of the functionality of 
-xfce4-places-plugin: GNOME's Places menu to Xfce. 
+xfce4-places-plugin: This xfce4-places plugin is a menu with quick access to folders,
+xfce4-places-plugin: documents, and removable media. The places plugin brings much of the
+xfce4-places-plugin: functionality of GNOME's Places menu to Xfce. 
 xfce4-places-plugin:
-xfce4-places-plugin: Homepage : http://goodies.xfce.org/projects/panel-plugins/xfce4-places-plugin
-xfce4-places-plugin:
+xfce4-places-plugin: http://goodies.xfce.org/projects/panel-plugins/xfce4-places-plugin
 xfce4-places-plugin:
 xfce4-places-plugin:
 xfce4-places-plugin:

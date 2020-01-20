@@ -5,10 +5,12 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':'.
 
-              |-----handy-ruler------------------------------------------------------|
+     |-----handy-ruler------------------------------------------------------|
 xiccd: xiccd
 xiccd:
 xiccd: xiccd is a simple bridge between colord and X.
+xiccd:
+xiccd:
 xiccd:
 xiccd:
 xiccd:

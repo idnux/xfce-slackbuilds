@@ -8,12 +8,11 @@
                     |-----handy-ruler------------------------------------------------------|
 xfce4-fsguard-plugin: xfce4-fsguard-plugin
 xfce4-fsguard-plugin:
-xfce4-fsguard-plugin: checks free space on a chosen mount point frequently and displays 
-xfce4-fsguard-plugin: a message when a limit is reached
+xfce4-fsguard-plugin: checks free space on a chosen mount point frequently and displays a
+xfce4-fsguard-plugin: message when a limit is reached
 xfce4-fsguard-plugin:
 xfce4-fsguard-plugin:
-xfce4-fsguard-plugin: Homepage : http://goodies.xfce.org/projects/panel-plugins/xfce4-fsguard-plugin
-xfce4-fsguard-plugin:
+xfce4-fsguard-plugin: http://goodies.xfce.org/projects/panel-plugins/xfce4-fsguard-plugin
 xfce4-fsguard-plugin:
 xfce4-fsguard-plugin:
 xfce4-fsguard-plugin:

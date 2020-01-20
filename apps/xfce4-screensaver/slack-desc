@@ -5,12 +5,12 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':'.
 
-              |-----handy-ruler------------------------------------------------------|
+                 |-----handy-ruler------------------------------------------------------|
 xfce4-screensaver: xfce4-screensaver (Xfce's screensaver Emulator)
 xfce4-screensaver:
 xfce4-screensaver: xfce4-screensaver is a screen saver and locker that aims to have
-xfce4-screensaver: simple, sane, secure defaults and be well integrated with the desktop.
-xfce4-screensaver:
+xfce4-screensaver: simple, sane, secure defaults and be well integrated with the
+xfce4-screensaver: desktop.
 xfce4-screensaver:
 xfce4-screensaver:
 xfce4-screensaver:

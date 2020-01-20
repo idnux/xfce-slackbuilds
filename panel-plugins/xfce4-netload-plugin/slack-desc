@@ -8,12 +8,11 @@
                     |-----handy-ruler------------------------------------------------------|
 xfce4-netload-plugin: xfce4-netload-plugin (a netload plugin for the Xfce Panel)
 xfce4-netload-plugin:
-xfce4-netload-plugin: xfce4-netload plugin displays the current load of the network interfaces 
-xfce4-netload-plugin:  of your choice in the panel. It currently works on Linux, *BSD,
-xfce4-netload-plugin: Sun Solaris, HP_UX and MacOS X.
+xfce4-netload-plugin: xfce4-netload plugin displays the current load of the network
+xfce4-netload-plugin: interfaces of your choice in the panel. It currently works on Linux,
+xfce4-netload-plugin: *BSD, Sun Solaris, HP_UX and MacOS X.
 xfce4-netload-plugin:
-xfce4-netload-plugin: Homepage : http://goodies.xfce.org/projects/panel-plugins/xfce4-netload-plugin
-xfce4-netload-plugin:
+xfce4-netload-plugin: http://goodies.xfce.org/projects/panel-plugins/xfce4-netload-plugin
 xfce4-netload-plugin:
 xfce4-netload-plugin:
 xfce4-netload-plugin:

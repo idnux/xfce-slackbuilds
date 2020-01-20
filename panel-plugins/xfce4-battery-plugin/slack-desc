@@ -8,12 +8,11 @@
                     |-----handy-ruler------------------------------------------------------|
 xfce4-battery-plugin: xfce4-battery-plugin (battery plugin for the Xfce panel)
 xfce4-battery-plugin:
-xfce4-battery-plugin: xfce4-battery plugin is a battery monitor panel plugin for Xfce4, 
+xfce4-battery-plugin: xfce4-battery plugin is a battery monitor panel plugin for Xfce4,
 xfce4-battery-plugin: compatible with APM and ACPI, for Linux and *BSD.
 xfce4-battery-plugin:
 xfce4-battery-plugin:
-xfce4-battery-plugin: Homepage : http://goodies.xfce.org/projects/panel-plugins/xfce4-battery-plugin
-xfce4-battery-plugin:
+xfce4-battery-plugin: http://goodies.xfce.org/projects/panel-plugins/xfce4-battery-plugin
 xfce4-battery-plugin:
 xfce4-battery-plugin:
 xfce4-battery-plugin:

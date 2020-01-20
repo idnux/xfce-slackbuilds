@@ -5,10 +5,12 @@
 # exactly 11 lines for the formatting to be correct.  It's also customary to
 # leave one space after the ':'.
 
-             |-----handy-ruler------------------------------------------------------|
+                   |-----handy-ruler------------------------------------------------------|
 xfce4-volumed-pulse: xfce4-volumed-pulse
 xfce4-volumed-pulse:
-xfce4-volumed-pulse: xfce4-volumed-pulse is a volume keys control daemon for Xfce using pulseaudio.
+xfce4-volumed-pulse: xfce4-volumed-pulse is a volume keys control daemon for Xfce using
+xfce4-volumed-pulse: pulseaudio.
+xfce4-volumed-pulse:
 xfce4-volumed-pulse:
 xfce4-volumed-pulse: Homepage: https://git.xfce.org/apps/xfce4-volumed-pulse
 xfce4-volumed-pulse:

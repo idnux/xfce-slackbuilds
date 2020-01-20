@@ -5,10 +5,13 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':'.
 
-                    |-----handy-ruler------------------------------------------------------|
+                       |-----handy-ruler------------------------------------------------------|
 xfce4-calculator-plugin: xfce4-calculator-plugin (calculator plugin for the Xfce panel)
 xfce4-calculator-plugin:
 xfce4-calculator-plugin: xfce4-calculator-plugin is a calculator plugin for the Xfce4 panel.
+xfce4-calculator-plugin:
+xfce4-calculator-plugin:
+xfce4-calculator-plugin:
 xfce4-calculator-plugin:
 xfce4-calculator-plugin:
 xfce4-calculator-plugin:

@@ -70,7 +70,7 @@ find -L . \
 # https://bugzilla.gnome.org/show_bug.cgi?id=652545
 patch -p1 < $CWD/libunique-1.1.6-G_CONST_RETURN.patch
 
-# Configure, build, and install
+# Configure, build, and install:
 CFLAGS="$SLKCFLAGS -Wno-deprecated-declarations" \
 CXXFLAGS="$SLKCFLAGS -Wno-deprecated-declarations" \
 ./configure \
@@ -134,3 +134,4 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
+

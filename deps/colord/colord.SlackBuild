@@ -91,6 +91,8 @@ if ! grep -q ^colord: /etc/group ; then
 fi
 
 #Configure, build, install:
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
 meson "build" \
   --prefix=/usr \
   --localstatedir=/var \
@@ -165,3 +167,4 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
+
