@@ -68,7 +68,7 @@ find -L . \
 
 # Remove G_CONST_RETURN usage, now that its gone in glib
 # https://bugzilla.gnome.org/show_bug.cgi?id=652545
-patch -p1 < $CWD/libunique-1.1.6-G_CONST_RETURN.patch
+cat $CWD/patches/libunique-1.1.6-G_CONST_RETURN.patch | patch -p1 --verbose
 
 # Configure, build, and install:
 CFLAGS="$SLKCFLAGS -Wno-deprecated-declarations" \
