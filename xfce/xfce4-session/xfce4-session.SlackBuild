@@ -85,7 +85,7 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Patch to support light-locker:
-cat ${CWD}/xflock4.patch | patch -p1 --verbose
+cat ${CWD}/patches/xflock4.patch | patch -p1 --verbose
 
 # Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \

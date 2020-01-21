@@ -85,9 +85,9 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Patch to support xarchiver:
-cat ${CWD}/xarchiver.patch | patch -p1 --verbose
+cat ${CWD}/patches/xarchiver.patch | patch -p1 --verbose
 
-# Configure:
+# Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
@@ -99,12 +99,8 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-debug=no \
   --build=$ARCH-slackware-linux
 
-# Build and install:
 make $NUMJOBS
 make install DESTDIR=$PKG
-
-# Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
@@ -131,7 +127,7 @@ fi
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   AUTHORS COPYING ChangeLog INSTALL NEWS README THANKS \
-    $PKG/usr/doc/$PRGNAM-$VERSION
+  $PKG/usr/doc/$PRGNAM-$VERSION
 
 # If there's a ChangeLog, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
@@ -150,3 +146,4 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
+
