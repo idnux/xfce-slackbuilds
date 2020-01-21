@@ -8,16 +8,12 @@
                |-----handy-ruler------------------------------------------------------|
 paper-gtk-theme: paper-gtk-theme
 paper-gtk-theme:
-paper-gtk-theme: Paper is a modern desktop theme suite. Its design is mostly flat
-paper-gtk-theme: with a minimal use of shadows for depth.
+paper-gtk-theme: Paper is a modern desktop theme suite. Its design is mostly flat with
+paper-gtk-theme: a minimal use of shadows for depth.
 paper-gtk-theme:
-paper-gtk-theme: Paper has been developed primarily with modern GTK3 (GNOME-based) desktop
-paper-gtk-theme: environments in mind, legacy-toolkit and GTK2 environments will not provide
-paper-gtk-theme: an ideal experience, as much of the visual design relies on modern GTK3+
-paper-gtk-theme: widgets.
+paper-gtk-theme: Paper has been developed primarily with modern GTK3 (GNOME-based)
+paper-gtk-theme: desktop environments in mind, legacy-toolkit and GTK2 environments
+paper-gtk-theme: will not provide an ideal experience, as much of the visual design
+paper-gtk-theme: relies on modern GTK3+ widgets.
 paper-gtk-theme:
 paper-gtk-theme: Home page: https://github.com/snwh/paper-gtk-theme
-paper-gtk-theme:
-paper-gtk-theme:
-paper-gtk-theme:
-paper-gtk-theme:

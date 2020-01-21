@@ -5,12 +5,15 @@
 # You must make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-            |-----handy-ruler------------------------------------------------------|
+                  |-----handy-ruler------------------------------------------------------|
 rubygem-rb-inotify: rubygem-rb-inotify
 rubygem-rb-inotify:
 rubygem-rb-inotify: A Ruby wrapper for Linux inotify, using FFI
 rubygem-rb-inotify:
 rubygem-rb-inotify: Homepage: https://rubygems.org/gems/rb-inotify
+rubygem-rb-inotify:
+rubygem-rb-inotify:
+rubygem-rb-inotify:
 rubygem-rb-inotify:
 rubygem-rb-inotify:
 rubygem-rb-inotify:

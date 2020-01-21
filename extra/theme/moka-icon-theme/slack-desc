@@ -5,14 +5,15 @@
 # You must make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-                    |-----handy-ruler------------------------------------------------------|
+               |-----handy-ruler------------------------------------------------------|
 moka-icon-theme: moka-icon-theme
 moka-icon-theme:
-moka-icon-theme: Moka is a stylized FreeDesktop icon set, created with simplicity in mind.
-moka-icon-theme: It uses simple geometry & bright colours and has been designed and
-moka-icon-theme: optimized to achieve the a pixel-perfect look for your desktop.
+moka-icon-theme: Moka is a stylized FreeDesktop icon set, created with simplicity in
+moka-icon-theme: mind. It uses simple geometry & bright colours and has been designed
+moka-icon-theme: and optimized to achieve the a pixel-perfect look for your desktop.
 moka-icon-theme:
 moka-icon-theme: Home Page: https://github.com/snwh/moka-icon-theme
 moka-icon-theme:
 moka-icon-theme:
-
+moka-icon-theme:
+moka-icon-theme:

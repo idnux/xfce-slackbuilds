@@ -5,12 +5,15 @@
 # You must make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-         |-----handy-ruler------------------------------------------------------|
+           |-----handy-ruler------------------------------------------------------|
 xfce-polkit: xfce-polkit
 xfce-polkit:
 xfce-polkit: xfce-polkit is a simple PolicyKit authentication agent for XFCE.
 xfce-polkit:
 xfce-polkit: Homepage: https://github.com/ncopa/xfce-polkit
+xfce-polkit:
+xfce-polkit:
+xfce-polkit:
 xfce-polkit:
 xfce-polkit:
 xfce-polkit:

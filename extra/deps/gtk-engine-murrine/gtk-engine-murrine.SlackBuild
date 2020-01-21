@@ -86,7 +86,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-# Configure:
+# Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
@@ -98,10 +98,9 @@ CXXFLAGS="$SLKCFLAGS" \
   --mandir=/usr/man \
   --infodir=/usr/info \
   --enable-animation \
-  --build=$ARCH-slackware-linux|| exit 1
+  --build=$ARCH-slackware-linux
 
-# Build and install:
-make $NUMJOBS || make
+make $NUMJOBS
 make install DESTDIR=$PKG
 
 # Strip binaries:
@@ -130,6 +129,7 @@ mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   AUTHORS COPYING* ChangeLog INSTALL NEWS README TODO \
   $PKG/usr/doc/$PRGNAM-$VERSION
+
 # If there's a ChangeLog, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
 if [ -r ChangeLog ]; then
@@ -146,3 +146,4 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $SRCNAM-$VERSION $PKG
+

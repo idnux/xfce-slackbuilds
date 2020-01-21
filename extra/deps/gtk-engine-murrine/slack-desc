@@ -5,13 +5,13 @@
 # You must make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-       |-----handy-ruler------------------------------------------------------|
+                  |-----handy-ruler------------------------------------------------------|
 gtk-engine-murrine: gtk-engine-murrine (Gtk2 Cairo Engine)
 gtk-engine-murrine:
 gtk-engine-murrine: murrine is an Italian word meaning colored glass patterns made by
-gtk-engine-murrine: Venetian glass makers.  murrine is a gtk2 engine that will make
-gtk-engine-murrine: your desktop look like a beautiful Murrina(which is the italian
-gtk-engine-murrine: singular of murrine).
+gtk-engine-murrine: Venetian glass makers.  murrine is a gtk2 engine that will make your
+gtk-engine-murrine: desktop look like a beautiful Murrina(which is the italian singular
+gtk-engine-murrine: of murrine).
 gtk-engine-murrine:
 gtk-engine-murrine: Website: http://www.cimitan.com/murrine
 gtk-engine-murrine:
