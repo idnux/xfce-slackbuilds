@@ -99,6 +99,7 @@ for dir in \
   panel-plugins/xfce4-pulseaudio-plugin \
   panel-plugins/xfce4-sensors-plugin \
   panel-plugins/xfce4-smartbookmark-plugin \
+  panel-plugins/xfce4-stopwatch-plugin \
   panel-plugins/xfce4-systemload-plugin \
   panel-plugins/xfce4-timer-plugin \
   panel-plugins/xfce4-weather-plugin \
