@@ -101,6 +101,7 @@ Senarai Paket:
     -  rubygem-rb-inotify 0.10.0
     -  rubygem-ffi 1.11.1
     -  gtk-engine-murrine 0.98.2
+    -  libsass 3.6.3
 
 
 Sila digunakan dengan bebas, namun tidak ada jaminan paket yang dihasilkan dapat bekerja di sistem milik anda.
