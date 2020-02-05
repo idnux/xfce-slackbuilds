@@ -47,6 +47,7 @@ for dir in \
   extra/deps/rubygem-sass-listen \
   extra/deps/rubygem-sass \
   extra/deps/libsass \
+  extra/deps/sassc \
   extra/theme/paper-gtk-theme \
   extra/theme/greybird-gtk-theme \
   extra/theme/materia-gtk-theme \
