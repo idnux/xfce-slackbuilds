@@ -87,11 +87,11 @@ find -L . \
 #Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
-./autogen.sh \
+meson "build" \
   --prefix=/usr
 
-make $NUMJOBS
-make install DESTDIR=$PKG
+ninja $NUMJOBS -C "build"
+DESTDIR=$PKG ninja -C "build" install
 
 # Add a documentation directory.  Not all of these files are expected to be
 # present, but listing them ensures that documentation that might appear and
