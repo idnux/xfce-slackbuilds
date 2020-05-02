@@ -85,7 +85,6 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Build and install:
-python setup.py install --root=$PKG
 python3 setup.py install --root=$PKG
 
 # Strip binaries:
