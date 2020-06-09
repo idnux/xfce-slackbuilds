@@ -86,13 +86,13 @@ Senarai Paket:
   -  thunar-vcs-plugin 0.2.0
 - Aplikasi tambahan
   - Aplikasi
-    -  xarchiver 0.5.4.14
+    -  xarchiver 0.5.4.15
     -  xfce-polkit 0.3
   - Tema
     -  paper-icon-theme 1.5.0
     -  paper-gtk-theme git.20180127
-    -  greybird-gtk-theme 3.22.11
-    -  materia-gtk-theme 20191017
+    -  greybird-gtk-theme 3.22.12
+    -  materia-gtk-theme 20200320
     -  moka-icon-theme 5.4.0
   - Dependensi
     -  rubygem-sass 3.7.4

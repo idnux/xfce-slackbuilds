@@ -87,6 +87,10 @@ find -L . \
 install -d $PKG/usr/share/themes
 ./install.sh -d $PKG/usr/share/themes
 
+# Strip binaries:
+find $PKG | xargs file | grep -e "executable" -e "shared object" \
+  | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
 # Add a documentation directory.  Not all of these files are expected to be
 # present, but listing them ensures that documentation that might appear and
 # disappear from version to version will not be missed.
