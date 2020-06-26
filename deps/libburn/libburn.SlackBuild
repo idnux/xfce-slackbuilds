@@ -53,7 +53,7 @@ unset DOWNLOAD
 eval `cat $PRGNAM.info | grep "DOWNLOAD="`
 if [ ! -e $(basename $DOWNLOAD) ]; then
   echo "Downloading: $DOWNLOAD"
-  rm -f $PRGNAM-$VERSION.tar.*
+  rm -f $PRGNAM-$VERSION.pl01.tar.*
   curl -OLJ -C - $DOWNLOAD
 fi
 
@@ -77,7 +77,7 @@ rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
 cd $WRK
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.?z*
+tar xvf $CWD/$PRGNAM-$VERSION.pl01.tar.?z*
 cd $PRGNAM-$VERSION
 
 chown -R root:root .
@@ -101,12 +101,12 @@ CXXFLAGS="$SLKCFLAGS" \
 make $NUMJOBS
 make install DESTDIR=$PKG
 
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
+
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
-
-# Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Compress and if needed symlink the man pages:
 if [ -d $PKG/usr/man ]; then

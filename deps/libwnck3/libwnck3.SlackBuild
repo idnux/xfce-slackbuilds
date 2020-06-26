@@ -100,12 +100,12 @@ DESTDIR=$PKG ninja -C "build" install
 mv $PKG/usr/bin/wnckprop $PKG/usr/bin/wnckprop3
 mv $PKG/usr/bin/wnck-urgency-monitor $PKG/usr/bin/wnck3-urgency-monitor
 
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
+
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-
-# Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Compress and if needed symlink the man pages:
 if [ -d $PKG/usr/man ]; then

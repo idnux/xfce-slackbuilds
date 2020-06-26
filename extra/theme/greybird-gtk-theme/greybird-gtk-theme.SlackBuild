@@ -28,18 +28,7 @@ VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
-
-# Automatically determine the architecture we're building on:
-MARCH=$( uname -m )
-if [ -z "$ARCH" ]; then
-  case "$MARCH" in
-    i?86)    export ARCH=i586 ;;
-    armv7hl) export ARCH=$MARCH ;;
-    arm*)    export ARCH=arm ;;
-    # Unless $ARCH is already set, use uname -m for all other archs:
-    *)       export ARCH=$MARCH ;;
-  esac
-fi
+ARCH="noarch"
 
 CWD=$(pwd)
 WRK=${WRK:-/tmp/idn}

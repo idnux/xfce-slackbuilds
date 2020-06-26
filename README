@@ -25,21 +25,21 @@ Senarai Paket:
   -  xfdesktop 4.14.2
   -  xfwm4 4.14.2
 - Pustaka:
-  -  argyllcms 2.1.1
+  -  argyllcms 2.1.2
   -  colord 1.4.4
   -  ffmpegthumbnailer 2.2.2
   -  ftjam 2.5.2
   -  glade 3.36.0
   -  gtksourceview3 3.24.11
-  -  libburn 1.5.0
-  -  libgusb 0.3.0
-  -  libisofs 1.5.0
+  -  libburn 1.5.2
+  -  libgusb 0.3.4
+  -  libisofs 1.5.2
   -  libunique 1.1.6
-  -  libwnck3 3.32.0
+  -  libwnck3 3.36.0
   -  pexpect 4.8.0
   -  ptyprocess 0.6.0
   -  python-distutils-extra 2.39
-  -  upower 0.99.10
+  -  upower 0.99.11
   -  xiccd 0.3.0
 - Aplikasi:
   -  catfish 1.4.13
