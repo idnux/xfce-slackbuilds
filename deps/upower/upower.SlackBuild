@@ -114,8 +114,8 @@ make install DESTDIR=$PKG
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Strip binaries:
-find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
-  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+find $PKG | xargs file | grep -e "executable" -e "shared object" \
+  | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 # Don't clobber the config file on upgrades
 mv $PKG/etc/UPower/UPower.conf $PKG/etc/UPower/UPower.conf.new
