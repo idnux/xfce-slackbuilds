@@ -84,6 +84,7 @@ find -L . \
 aclocal
 autoconf
 automake --add-missing
+
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
