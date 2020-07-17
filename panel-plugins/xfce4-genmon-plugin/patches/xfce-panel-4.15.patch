@@ -1,0 +1,53 @@
+From 2d428d94a52c8801266dd09e0ea91b7ada7fe40d Mon Sep 17 00:00:00 2001
+From: ToZ <tony.paulic@gmail.com>
+Date: Fri, 4 Oct 2019 18:52:14 -0400
+Subject: Allow compilation with panel 4.15
+
+---
+ panel-plugin/config_gui.c | 2 +-
+ panel-plugin/config_gui.h | 2 +-
+ panel-plugin/main.c       | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/panel-plugin/config_gui.c b/panel-plugin/config_gui.c
+index a9f5bf8..cb2f14f 100644
+--- a/panel-plugin/config_gui.c
++++ b/panel-plugin/config_gui.c
+@@ -29,7 +29,7 @@
+ 
+ #include <libxfce4util/libxfce4util.h>
+ #include <libxfce4ui/libxfce4ui.h>
+-#include <libxfce4panel/xfce-panel-plugin.h>
++#include <libxfce4panel/libxfce4panel.h>
+ 
+ 
+ #define COPYVAL(var, field)    ((var)->field = field)
+diff --git a/panel-plugin/config_gui.h b/panel-plugin/config_gui.h
+index 47fa984..8522749 100644
+--- a/panel-plugin/config_gui.h
++++ b/panel-plugin/config_gui.h
+@@ -29,7 +29,7 @@
+ #include <gtk/gtk.h>
+ 
+ #include <libxfce4util/libxfce4util.h>
+-#include <libxfce4panel/xfce-panel-plugin.h>
++#include <libxfce4panel/libxfce4panel.h>
+ 
+ 
+ typedef struct gui_t {
+diff --git a/panel-plugin/main.c b/panel-plugin/main.c
+index b5b8579..dfbcd09 100644
+--- a/panel-plugin/main.c
++++ b/panel-plugin/main.c
+@@ -33,7 +33,7 @@
+ 
+ #include <libxfce4util/libxfce4util.h>
+ #include <libxfce4ui/libxfce4ui.h>
+-#include <libxfce4panel/xfce-panel-plugin.h>
++#include <libxfce4panel/libxfce4panel.h>
+ #include <libxfce4panel/xfce-panel-convenience.h>
+ 
+ #include <stdint.h>
+-- 
+cgit v1.2.3
+

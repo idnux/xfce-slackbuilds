@@ -1,0 +1,25 @@
+From b2d1610e1020de70e63a15b96963cb68ab07d0ad Mon Sep 17 00:00:00 2001
+From: Andre Miranda <andreldm@xfce.org>
+Date: Sat, 19 Oct 2019 19:02:31 -0300
+Subject: Fix build with panel 4.15
+
+---
+ panel-plugin/main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/panel-plugin/main.c b/panel-plugin/main.c
+index e22278a..3fa07d5 100644
+--- a/panel-plugin/main.c
++++ b/panel-plugin/main.c
+@@ -26,7 +26,7 @@
+ 
+ #include <libxfce4util/libxfce4util.h>
+ #include <libxfce4ui/libxfce4ui.h>
+-#include <libxfce4panel/xfce-panel-plugin.h>
++#include <libxfce4panel/libxfce4panel.h>
+ 
+ #include <stdlib.h>
+ #include <unistd.h>
+-- 
+cgit v1.2.3
+
