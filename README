@@ -14,7 +14,7 @@ Senarai Paket:
   -  libxfce4util 4.15.2
   -  thunar 4.15.1
   -  thunar-volman 0.9.5
-  -  tumbler 0.2.8
+  -  tumbler 0.2.9
   -  xfce4-appfinder 4.15.0
   -  xfce4-dev-tools 4.15.0
   -  xfce4-panel 4.15.3
@@ -23,7 +23,7 @@ Senarai Paket:
   -  xfce4-settings 4.15.1
   -  xfconf 4.15.0
   -  xfdesktop 4.15.0
-  -  xfwm4 4.15.0
+  -  xfwm4 4.15.1
 - Pustaka:
   -  argyllcms 2.1.2
   -  colord 1.4.4
