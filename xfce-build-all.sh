@@ -66,7 +66,6 @@ for dir in \
   xfce/xfce4-power-manager \
   xfce/gtk-xfce-engine \
   apps/mousepad \
-  apps/orage \
   apps/parole \
   apps/ristretto \
   apps/xfce4-notifyd \
