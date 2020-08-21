@@ -7,20 +7,20 @@ Paket-paket yang tersedia dalam lumbung ini merupakan versi pengembangan menuju 
 
 Senarai Paket:
 - Modul inti Xfce:
-  -  exo 4.15.1
-  -  garcon 0.7.0
+  -  exo 4.15.2
+  -  garcon 0.7.1
   -  gtk-xfce-engine 3.2.0
   -  libxfce4ui 4.15.3
   -  libxfce4util 4.15.2
   -  thunar 4.15.1
-  -  thunar-volman 0.9.5
+  -  thunar-volman 4.15.0
   -  tumbler 0.3.0
-  -  xfce4-appfinder 4.15.0
+  -  xfce4-appfinder 4.15.1
   -  xfce4-dev-tools 4.15.0
   -  xfce4-panel 4.15.3
   -  xfce4-power-manager 1.7.0
   -  xfce4-session 4.15.0
-  -  xfce4-settings 4.15.1
+  -  xfce4-settings 4.15.2
   -  xfconf 4.15.0
   -  xfdesktop 4.15.0
   -  xfwm4 4.15.1
