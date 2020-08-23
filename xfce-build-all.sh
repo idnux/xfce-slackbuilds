@@ -47,6 +47,7 @@ for dir in \
   deps/libwnck3 \
   deps/glade \
   deps/gtksourceview3 \
+  deps/libdbusmenu \
   xfce/xfce4-panel \
   xfce/thunar \
   xfce/thunar-volman \

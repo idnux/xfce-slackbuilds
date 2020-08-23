@@ -17,7 +17,7 @@ Senarai Paket:
   -  tumbler 0.3.0
   -  xfce4-appfinder 4.15.1
   -  xfce4-dev-tools 4.15.0
-  -  xfce4-panel 4.15.3
+  -  xfce4-panel 4.15.4
   -  xfce4-power-manager 1.7.0
   -  xfce4-session 4.15.0
   -  xfce4-settings 4.15.2
@@ -32,6 +32,7 @@ Senarai Paket:
   -  glade 3.36.0
   -  gtksourceview3 3.24.11
   -  libburn 1.5.2
+  -  libdbusmenu 16.04.0
   -  libgtop 2.40.0
   -  libgusb 0.3.4
   -  libisofs 1.5.2
