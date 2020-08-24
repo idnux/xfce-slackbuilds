@@ -74,6 +74,7 @@ rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.?z*
 cd $PRGNAM-$VERSION
 
+# Make sure ownerships and permissions are sane:
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -129,6 +130,9 @@ mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
 cp -a \
   AUTHORS COPYING* FAQ HACKING INSTALL NEWS README.md THANKS TODO \
   $PKG/usr/doc/${PRGNAM}-$VERSION
+( cd $PKG/usr/doc/$PRGNAM-$VERSION
+  ln -s /usr/share/gtk-doc/html/thunarx .
+)
 
 # If there's a ChangeLog, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
@@ -146,4 +150,3 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
-
