@@ -128,6 +128,10 @@ cp -a \
   AUTHORS COPYING* INSTALL NEWS README* TODO \
   $PKG/usr/doc/${PRGNAM}-$VERSION
 
+( cd $PKG/usr/doc/$PRGNAM-$VERSION
+  ln -s /usr/share/gtk-doc/html/$PRGNAM html
+)
+
 # If there's a ChangeLog, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
 if [ -r ChangeLog ]; then

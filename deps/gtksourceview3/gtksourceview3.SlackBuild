@@ -77,6 +77,7 @@ rm -rf $SRCNAM-$VERSION
 tar xvf $CWD/$SRCNAM-$VERSION.tar.?z*
 cd $SRCNAM-$VERSION
 
+# Make sure ownerships and permissions are sane:
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -130,6 +131,10 @@ cp -a \
   AUTHORS COPYING HACKING MAINTAINERS NEWS README \
   $PKG/usr/doc/$PRGNAM-$VERSION
 
+( cd $PKG/usr/doc/$PRGNAM-$VERSION
+  ln -s /usr/share/gtk-doc/html/$SRCNAM-${VERSION%.*.*}.0 html
+)
+
 # If there's a ChangeLog, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
 if [ -r ChangeLog ]; then
@@ -146,4 +151,3 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $SRCNAM-$VERSION $PKG
-

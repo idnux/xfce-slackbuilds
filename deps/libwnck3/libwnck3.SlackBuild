@@ -75,6 +75,7 @@ rm -rf $SRCNAM-$VERSION
 tar -xvf $CWD/$SRCNAM-$VERSION.tar.?z*
 cd $SRCNAM-$VERSION
 
+# Make sure ownerships and permissions are sane:
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -83,16 +84,19 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Configure, build, and install:
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
-meson "build" \
+mkdir -p build
+cd build
+  CFLAGS="$SLKCFLAGS" \
+  CXXFLAGS="$SLKCFLAGS" \
+  meson \
     --prefix=/usr \
     -Dinstall_tools=true \
     -Dintrospection=enabled \
-    -Dgtk_doc=true
-
-ninja -C "build" $NUMJOBS
-DESTDIR=$PKG ninja -C "build" install
+    -Dgtk_doc=true \
+    ..
+  ninja $NUMJOBS
+  DESTDIR=$PKG ninja install
+cd -
 
 mv $PKG/usr/bin/wnckprop $PKG/usr/bin/wnckprop3
 mv $PKG/usr/bin/wnck-urgency-monitor $PKG/usr/bin/wnck3-urgency-monitor
@@ -124,8 +128,12 @@ fi
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
 cp -a \
-  AUTHORS COPYING ChangeLog HACKING MAINTAINERS NEWS README \
+  AUTHORS COPYING HACKING MAINTAINERS NEWS README \
   $PKG/usr/doc/${PRGNAM}-$VERSION
+
+( cd $PKG/usr/doc/$PRGNAM-$VERSION
+  ln -s /usr/share/gtk-doc/html/$SRCNAM-${VERSION%.*.*}.0 html
+)
 
 # If there's a ChangeLog, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
@@ -143,4 +151,3 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $SRCNAM-$VERSION $PKG
-

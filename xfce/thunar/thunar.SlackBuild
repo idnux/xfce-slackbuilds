@@ -130,6 +130,7 @@ mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
 cp -a \
   AUTHORS COPYING* FAQ HACKING INSTALL NEWS README.md THANKS TODO \
   $PKG/usr/doc/${PRGNAM}-$VERSION
+
 ( cd $PKG/usr/doc/$PRGNAM-$VERSION
   ln -s /usr/share/gtk-doc/html/thunarx .
 )
