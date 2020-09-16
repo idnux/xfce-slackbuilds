@@ -83,19 +83,21 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Configure, build, and install:
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
-./configure \
-  --prefix=/usr \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --sysconfdir=/etc \
-  --localstatedir=/var \
-  --mandir=/usr/man \
-  --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --build=$ARCH-slackware-linux
-
-make $NUMJOBS
-make install DESTDIR=$PKG
+mkdir -p build
+cd build
+  CFLAGS="$SLKCFLAGS" \
+  CXXFLAGS="$SLKCFLAGS" \
+  meson \
+    --prefix=/usr \
+    --libdir=/usr/lib${LIBDIRSUFFIX} \
+    --mandir=/usr/man \
+    -Dman=true \
+    -Dgtk_doc=true \
+    -Dgladeui=true \
+    ..
+  ninja $NUMJOBS
+  DESTDIR=$PKG ninja install
+cd -
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
@@ -124,7 +126,7 @@ fi
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  AUTHORS COPYING* INSTALL NEWS  TODO \
+  AUTHORS COPYING* MAINTAINERS NEWS TODO \
   $PKG/usr/doc/$PRGNAM-$VERSION
 
 ( cd $PKG/usr/doc/$PRGNAM-$VERSION
