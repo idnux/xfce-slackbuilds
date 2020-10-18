@@ -51,6 +51,7 @@ rm -rf $SRCNAM-$VERSION
 tar xvf $CWD/$SRCNAM-$VERSION.tar.?z*
 cd $SRCNAM-$VERSION
 
+# Make sure ownerships and permissions are sane:
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -91,4 +92,3 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $SRCNAM-$VERSION $PKG
-

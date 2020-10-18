@@ -137,6 +137,7 @@ mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   COPYING* INSTALL NEWS README \
   $PKG/usr/doc/$PRGNAM-$VERSION
+
 ( cd $PKG/usr/doc/$PRGNAM-$VERSION
   ln -s /usr/share/gtk-doc/html/$PRGNAM-glib .
   ln -s /usr/share/gtk-doc/html/$PRGNAM-gtk .

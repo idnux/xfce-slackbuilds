@@ -61,6 +61,7 @@ rm -rf $PRGNAM-v.$VERSION
 tar xvf $CWD/$PRGNAM-v.$VERSION.tar.?z*
 cd $PRGNAM-v.$VERSION
 
+# Make sure ownerships and permissions are sane:
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -69,8 +70,15 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Build and install:
-meson "build" --prefix=/usr
-DESTDIR=$PKG ninja -C "build" install
+mkdir -p build
+cd build
+  CFLAGS="$SLKCFLAGS" \
+  CXXFLAGS="$SLKCFLAGS" \
+  meson \
+    --prefix=/usr \
+    ..
+  DESTDIR=$PKG ninja install
+cd -
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
@@ -101,4 +109,3 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $PRGNAM-v.$VERSION $PKG
-

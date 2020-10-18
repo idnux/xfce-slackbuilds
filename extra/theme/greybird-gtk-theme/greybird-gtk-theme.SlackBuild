@@ -52,6 +52,7 @@ rm -rf $SRCNAM-$VERSION
 tar xvf $CWD/$SRCNAM-$VERSION.tar.?z*
 cd $SRCNAM-$VERSION
 
+# Make sure ownerships and permissions are sane:
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -60,11 +61,16 @@ find -L . \
  -exec chmod 644 {} \;
 
 #Configure, build, and install:
-meson "build" \
-  --prefix=/usr
-
-ninja $NUMJOBS -C "build"
-DESTDIR=$PKG ninja -C "build" install
+mkdir -p build
+cd build
+  CFLAGS="$SLKCFLAGS" \
+  CXXFLAGS="$SLKCFLAGS" \
+  meson "build" \
+    --prefix=/usr \
+    ..
+  ninja $NUMJOBS
+  DESTDIR=$PKG ninja install
+cd -
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
@@ -95,4 +101,3 @@ cd $PKG
 
 echo "Cleaning up build directory"
 cd $WRK; rm -rf $SRCNAM-$VERSION $PKG
-
