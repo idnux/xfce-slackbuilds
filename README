@@ -7,7 +7,7 @@ Paket-paket yang tersedia dalam lumbung ini merupakan versi pengembangan menuju 
 
 Senarai Paket:
 - Modul inti Xfce:
-  -  exo 4.15.2
+  -  exo 4.15.3
   -  garcon 0.7.1
   -  gtk-xfce-engine 3.2.0
   -  libxfce4ui 4.15.3
@@ -23,13 +23,13 @@ Senarai Paket:
   -  xfce4-settings 4.15.2
   -  xfconf 4.15.0
   -  xfdesktop 4.15.0
-  -  xfwm4 4.15.1
+  -  xfwm4 4.15.3
 - Pustaka:
   -  argyllcms 2.1.2
   -  colord 1.4.4
   -  ffmpegthumbnailer 2.2.2
   -  ftjam 2.5.2
-  -  glade 3.38.0
+  -  glade 3.38.1
   -  gtksourceview3 3.24.11
   -  libburn 1.5.2
   -  libdbusmenu 16.04.0
@@ -43,7 +43,7 @@ Senarai Paket:
   -  upower 0.99.11
   -  xiccd 0.3.0
 - Aplikasi:
-  -  catfish 1.4.13
+  -  catfish 4.15.0
   -  gigolo 0.5.1
   -  mousepad 0.4.2
   -  parole 1.0.5
