@@ -76,7 +76,7 @@ mkdir -p build
 cd build
   CFLAGS="$SLKCFLAGS" \
   CXXFLAGS="$SLKCFLAGS" \
-  meson "build" \
+  meson \
     --prefix=/usr \
     ..
   ninja $NUMJOBS
