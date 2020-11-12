@@ -71,8 +71,16 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Build and install:
-install -d $PKG/usr/share/themes
-./install.sh -d $PKG/usr/share/themes
+mkdir -p build
+cd build
+  CFLAGS="$SLKCFLAGS" \
+  CXXFLAGS="$SLKCFLAGS" \
+  meson \
+    --prefix=/usr \
+    ..
+  ninja $NUMJOBS
+  DESTDIR=$PKG ninja install
+cd -
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
