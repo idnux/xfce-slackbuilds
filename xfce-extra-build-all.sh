@@ -39,16 +39,9 @@ CHECKDUPLICATE=0
 for dir in \
   extra/apps/xarchiver \
   extra/apps/xfce-polkit \
-  extra/theme/paper-icon-theme \
   extra/deps/gtk-engine-murrine \
-  extra/deps/rubygem-ffi \
-  extra/deps/rubygem-rb-inotify \
-  extra/deps/rubygem-rb-fsevent \
-  extra/deps/rubygem-sass-listen \
-  extra/deps/rubygem-sass \
   extra/deps/libsass \
   extra/deps/sassc \
-  extra/theme/paper-gtk-theme \
   extra/theme/greybird-gtk-theme \
   extra/theme/materia-gtk-theme \
   extra/theme/moka-icon-theme \
