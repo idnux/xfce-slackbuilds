@@ -7,6 +7,7 @@ Paket-paket yang tersedia dalam lumbung ini merupakan versi pengembangan menuju 
 
 Senarai Paket:
 - Modul inti Xfce:
+<<<<<<< HEAD
   -  exo 4.15.3
   -  garcon 0.7.2
   -  gtk-xfce-engine 3.2.0
@@ -24,6 +25,25 @@ Senarai Paket:
   -  xfconf 4.15.1
   -  xfdesktop 4.15.1
   -  xfwm4 4.15.3
+=======
+  -  exo 0.12.11
+  -  garcon 0.7.1
+  -  gtk-xfce-engine 3.2.0
+  -  libxfce4ui 4.14.1
+  -  libxfce4util 4.14.0
+  -  thunar 1.8.15
+  -  thunar-volman 0.9.5
+  -  tumbler 0.3.0
+  -  xfce4-appfinder 4.14.0
+  -  xfce4-dev-tools 4.14.0
+  -  xfce4-panel 4.14.4
+  -  xfce4-power-manager 1.7.0
+  -  xfce4-session 4.14.2
+  -  xfce4-settings 4.14.3
+  -  xfconf 4.14.3
+  -  xfdesktop 4.14.2
+  -  xfwm4 4.14.5
+>>>>>>> 586e347c330f1005c11a7d72e21f85fe67b52df4
 - Pustaka:
   -  argyllcms 2.1.2
   -  colord 1.4.4
@@ -49,7 +69,11 @@ Senarai Paket:
   -  parole 1.0.5
   -  ristretto 0.10.0
   -  xfburn 0.6.2
+<<<<<<< HEAD
   -  xfce4-dict 0.8.4
+=======
+  -  xfce4-dict 0.8.3
+>>>>>>> 586e347c330f1005c11a7d72e21f85fe67b52df4
   -  xfce4-notifyd 0.6.2
   -  xfce4-panel-profiles 1.0.10
   -  xfce4-screensaver 0.1.10
@@ -76,7 +100,11 @@ Senarai Paket:
   -  xfce4-stopwatch-plugin 0.4.0
   -  xfce4-systemload-plugin 1.2.3
   -  xfce4-timer-plugin 1.7.1
+<<<<<<< HEAD
   -  xfce4-weather-plugin 0.10.2
+=======
+  -  xfce4-weather-plugin 0.10.1
+>>>>>>> 586e347c330f1005c11a7d72e21f85fe67b52df4
   -  xfce4-whiskermenu-plugin 2.4.6
   -  xfce4-xkb-plugin 0.8.1
 - Colok-masuk Thunar
