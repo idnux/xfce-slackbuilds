@@ -1,15 +1,8 @@
 PRGNAM="xfwm4"
-<<<<<<< HEAD
 VERSION="4.15.3"
 HOMEPAGE="http://www.xfce.org/"
 DOWNLOAD="http://archive.xfce.org/src/xfce/xfwm4/4.15/xfwm4-4.15.3.tar.bz2"
 MD5SUM="10c3461edde6d60e20245fd923003e99"
-=======
-VERSION="4.14.5"
-HOMEPAGE="http://www.xfce.org/"
-DOWNLOAD="http://archive.xfce.org/src/xfce/xfwm4/4.14/xfwm4-4.14.5.tar.bz2"
-MD5SUM="e6e55be91f55ca59e90921f40a4d9682"
->>>>>>> 586e347c330f1005c11a7d72e21f85fe67b52df4
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""
