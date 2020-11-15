@@ -1,0 +1,26 @@
+From 24a6e82305c0b75e46d9ecc76a79db94731f25f1 Mon Sep 17 00:00:00 2001
+From: Andre Miranda <andreldm@xfce.org>
+Date: Tue, 12 May 2020 19:38:42 -0300
+Subject: Save preferences when dialog is closed
+
+Since panel 4.15.1 the close button is not shown anymore
+---
+ panel-plugin/sensors-plugin.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/panel-plugin/sensors-plugin.c b/panel-plugin/sensors-plugin.c
+index 7ff8102..e0f8c53 100644
+--- a/panel-plugin/sensors-plugin.c
++++ b/panel-plugin/sensors-plugin.c
+@@ -2587,7 +2587,7 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
+     TRACE ("enters on_optionsDialog_response");
+ 
+ 
+-    if (response==GTK_RESPONSE_OK) {
++    if (response==GTK_RESPONSE_OK || response==GTK_RESPONSE_DELETE_EVENT) {
+         /* FIXME: save most of the content in this function,
+            remove those toggle functions where possible. NYI */
+         /* sensors_apply_options (sd); */
+-- 
+cgit v1.2.3
+
