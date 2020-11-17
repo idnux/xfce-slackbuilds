@@ -1,0 +1,34 @@
+From a96c8c562d21432cb7ca89b727b4c76a60ab6a1d Mon Sep 17 00:00:00 2001
+From: Andre Miranda <andreldm@xfce.org>
+Date: Mon, 9 Nov 2020 20:27:16 -0300
+Subject: about: Fix icon names
+
+---
+ xfce4-about/main.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/xfce4-about/main.c b/xfce4-about/main.c
+index 8c0433e..54f6140 100644
+--- a/xfce4-about/main.c
++++ b/xfce4-about/main.c
+@@ -141,7 +141,7 @@ xfce_about_about (GtkWidget *vbox)
+         N_("Manages your files in a modern, easy-to-use and fast way.")
+       },
+       { "thunar-volman",
+-        "org.xfce.thunar-volman",
++        "org.xfce.volman",
+         N_("Volume manager"),
+         N_("Manages removable drives and media for Thunar.")
+       },
+@@ -151,7 +151,7 @@ xfce_about_about (GtkWidget *vbox)
+         N_("Saves and restores your session, handles startup, autostart and shutdown.")
+       },
+       { "xfce4-settings",
+-        "org.xfce.settings",
++        "org.xfce.settings.manager",
+         N_("Setting System"),
+         N_("Configures appearance, display, keyboard and mouse settings.")
+       },
+-- 
+cgit v1.2.3
+

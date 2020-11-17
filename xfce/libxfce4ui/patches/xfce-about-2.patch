@@ -1,0 +1,73 @@
+From 05c16dd40f9017e6303724ccc208d0a81f5e84bf Mon Sep 17 00:00:00 2001
+From: Simon Steinbeiss <simon.steinbeiss@elfenbeinturm.at>
+Date: Mon, 16 Nov 2020 18:51:33 +0100
+Subject: about: Use more understandable arch labels (Issue #27)
+
+---
+ xfce4-about/main.c        |  2 +-
+ xfce4-about/system-info.c | 16 +++++++++++++---
+ xfce4-about/system-info.h |  1 +
+ 3 files changed, 15 insertions(+), 4 deletions(-)
+
+diff --git a/xfce4-about/main.c b/xfce4-about/main.c
+index 54f6140..dd3e015 100644
+--- a/xfce4-about/main.c
++++ b/xfce4-about/main.c
+@@ -84,7 +84,7 @@ xfce_about_system (GtkBuilder *builder)
+   gtk_label_set_text (GTK_LABEL (label), os_name_text ? os_name_text : "");
+ 
+   label = gtk_builder_get_object (builder, "ostype");
+-  os_type_text = get_system_info (ARCH);
++  os_type_text = get_os_type ();
+   gtk_label_set_text (GTK_LABEL (label), os_type_text ? os_type_text : "");
+ 
+   label = gtk_builder_get_object (builder, "xfce-version");
+diff --git a/xfce4-about/system-info.c b/xfce4-about/system-info.c
+index 8755623..cb3fcdf 100644
+--- a/xfce4-about/system-info.c
++++ b/xfce4-about/system-info.c
+@@ -264,6 +264,19 @@ get_os_info (void)
+ 
+ 
+ 
++char *
++get_os_type (void)
++{
++  if (GLIB_SIZEOF_VOID_P == 8)
++    /* translators: This is the type of architecture for the OS */
++    return g_strdup_printf (_("64-bit"));
++  else
++    /* translators: This is the type of architecture for the OS */
++    return g_strdup_printf (_("32-bit"));
++}
++
++
++
+ char *
+ get_system_info (guint infotype)
+ {
+@@ -280,9 +293,6 @@ get_system_info (guint infotype)
+       case OS_NAME:
+         result = g_strdup_printf ("%s %s", buffer.sysname, buffer.release);
+         break;
+-      case ARCH:
+-        result = g_strdup (buffer.machine);
+-        break;
+       case DEVICE_NAME:
+         result = g_strdup (buffer.nodename);
+         break;
+diff --git a/xfce4-about/system-info.h b/xfce4-about/system-info.h
+index 78d3730..92734af 100644
+--- a/xfce4-about/system-info.h
++++ b/xfce4-about/system-info.h
+@@ -37,6 +37,7 @@ enum
+   DEVICE_NAME
+ };
+ 
++char *get_os_type (void);
+ char *get_system_info (guint infotype);
+ char *get_cpu_info (const glibtop_sysinfo *info);
+ char *get_os_name (void);
+-- 
+cgit v1.2.3
+
