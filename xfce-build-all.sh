@@ -94,6 +94,7 @@ for dir in \
   panel-plugins/xfce4-diskperf-plugin \
   panel-plugins/xfce4-fsguard-plugin \
   panel-plugins/xfce4-genmon-plugin \
+  panel-plugins/xfce4-mailwatch-plugin \
   panel-plugins/xfce4-mount-plugin \
   panel-plugins/xfce4-netload-plugin \
   panel-plugins/xfce4-notes-plugin \
