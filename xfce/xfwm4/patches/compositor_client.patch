@@ -1,0 +1,432 @@
+diff -Nur xfwm4-4.15.3_old/src/client.c xfwm4-4.15.3/src/client.c
+--- xfwm4-4.15.3_old/src/client.c	2020-11-01 21:35:52.000000000 +0700
++++ xfwm4-4.15.3/src/client.c	2020-11-20 06:51:43.000000000 +0700
+@@ -679,11 +679,6 @@
+         XConfigureWindow (display_info->dpy, c->window, change_mask_client, &change_values);
+     }
+     myDisplayErrorTrapPopIgnored (display_info);
+-
+-    if (mask & (CWWidth | CWHeight))
+-    {
+-        compositorResizeWindow (display_info, c->frame, frameX (c), frameY (c), frameWidth (c), frameHeight (c));
+-    }
+ }
+ 
+ void
+@@ -866,7 +861,7 @@
+     win_resized = (c->width != c->applied_geometry.width ||
+                    c->height != c->applied_geometry.height);
+ 
+-    if ((win_moved) || (flags & CFG_NOTIFY) ||
++    if ((win_moved) || (flags & (CFG_NOTIFY | CFG_FORCE_REDRAW)) ||
+         ((flags & CFG_REQUEST) && !(win_moved || win_resized)))
+     {
+         clientSendConfigureNotify (c);
+@@ -2717,10 +2712,18 @@
+ void
+ clientKill (Client *c)
+ {
++    ScreenInfo *screen_info;
++    DisplayInfo *display_info;
++
+     g_return_if_fail (c != NULL);
+     TRACE ("client \"%s\" (0x%lx)", c->name, c->window);
+ 
+-    XKillClient (clientGetXDisplay (c), c->window);
++    screen_info = c->screen_info;
++    display_info = screen_info->display_info;
++
++    myDisplayErrorTrapPush (display_info);
++    XKillClient (display_info->dpy, c->window);
++    myDisplayErrorTrapPopIgnored (display_info);
+ }
+ 
+ void
+@@ -3435,6 +3438,11 @@
+         return FALSE;
+     }
+ 
++    if (c->tile_mode != TILE_NONE)
++    {
++        clientUntile (c);
++    }
++
+     screen_info = c->screen_info;
+     display_info = screen_info->display_info;
+     myScreenFindMonitorAtPoint (screen_info, cx, cy, &rect);
+@@ -3535,6 +3543,7 @@
+         return FALSE;
+     }
+     FLAG_SET (c->flags, CLIENT_FLAG_RESTORE_SIZE_POS);
++    c->tile_mode = tile;
+ 
+     c->x = wc.x;
+     c->y = wc.y;
+@@ -3563,6 +3572,99 @@
+ }
+ 
+ void
++clientUntile (Client *c)
++{
++    g_return_if_fail (c != NULL);
++    TRACE ("client \"%s\" (0x%lx)", c->name, c->window);
++
++    c->tile_mode = TILE_NONE;
++}
++
++gboolean
++clientToggleTile (Client *c, tilePositionType tile)
++{
++    DisplayInfo *display_info;
++    ScreenInfo *screen_info;
++
++    g_return_val_if_fail (c != NULL, FALSE);
++    TRACE ("client \"%s\" (0x%lx)", c->name, c->window);
++
++    screen_info = c->screen_info;
++    display_info = screen_info->display_info;
++
++    if (c->tile_mode == tile)
++    {
++        clientUntile (c);
++        clientRestoreSizePos (c);
++        setNetFrameExtents (display_info,
++                            c->window,
++                            frameTop (c),
++                            frameLeft (c),
++                            frameRight (c),
++                            frameBottom (c));
++
++        clientSetNetActions (c);
++        clientReconfigure (c, CFG_FORCE_REDRAW);
++
++        return TRUE;
++    }
++    else
++    {
++        return clientTile (c,
++                           frameX (c) + frameWidth (c) / 2,
++                           frameY (c) + frameHeight (c) / 2,
++                           tile,
++                           TRUE,
++                           TRUE);
++    }
++}
++
++
++static void
++clientRecomputeTileSize (Client *c)
++{
++    DisplayInfo *display_info;
++    ScreenInfo *screen_info;
++    XWindowChanges wc;
++    GdkRectangle rect;
++
++    g_return_if_fail (c != NULL);
++    TRACE ("client \"%s\" (0x%lx)", c->name, c->window);
++
++    screen_info = c->screen_info;
++    display_info = screen_info->display_info;
++
++    myScreenFindMonitorAtPoint (screen_info,
++                                frameX (c) + frameWidth (c) / 2,
++                                frameY (c) + frameHeight (c) / 2,
++                                &rect);
++
++    if (!clientNewTileSize (c, &wc, &rect, c->tile_mode))
++    {
++        return;
++    }
++
++    c->x = wc.x;
++    c->y = wc.y;
++    c->width = wc.width;
++    c->height = wc.height;
++}
++
++void
++clientUpdateTileSize (Client *c)
++{
++    g_return_if_fail (c != NULL);
++    TRACE ("client \"%s\" (0x%lx)", c->name, c->window);
++
++    /* Recompute size and position of maximized windows */
++    if (c->tile_mode != TILE_NONE)
++    {
++        clientRecomputeTileSize (c);
++        clientReconfigure (c, CFG_NOTIFY);
++    }
++}
++
++void
+ clientUpdateOpacity (Client *c)
+ {
+     ScreenInfo *screen_info;
+@@ -3748,6 +3850,10 @@
+         {
+             clientUpdateMaximizeSize (c);
+         }
++        else if (c->tile_mode != TILE_NONE)
++        {
++            clientUpdateTileSize (c);
++        }
+         else
+         {
+             configure_flags = CFG_CONSTRAINED | CFG_REQUEST;
+diff -Nur xfwm4-4.15.3_old/src/client.h xfwm4-4.15.3/src/client.h
+--- xfwm4-4.15.3_old/src/client.h	2020-11-01 21:35:52.000000000 +0700
++++ xfwm4-4.15.3/src/client.h	2020-11-20 06:51:43.000000000 +0700
+@@ -334,6 +334,7 @@
+     unsigned long xfwm_flags;
+     gint fullscreen_monitors[4];
+     gint frame_extents[SIDE_COUNT];
++    tilePositionType tile_mode;
+ 
+     /* Termination dialog */
+     gint dialog_pid;
+@@ -474,6 +475,10 @@
+                                                                  tilePositionType,
+                                                                  gboolean,
+                                                                  gboolean);
++void                     clientUntile                           (Client *);
++gboolean                 clientToggleTile                       (Client *,
++                                                                 tilePositionType);
++void                     clientUpdateTileSize                   (Client *);
+ void                     clientUpdateOpacity                    (Client *);
+ void                     clientUpdateAllOpacity                 (ScreenInfo *);
+ void                     clientSetOpacity                       (Client *,
+diff -Nur xfwm4-4.15.3_old/src/compositor.c xfwm4-4.15.3/src/compositor.c
+--- xfwm4-4.15.3_old/src/compositor.c	2020-11-02 03:35:17.000000000 +0700
++++ xfwm4-4.15.3/src/compositor.c	2020-11-20 06:51:43.000000000 +0700
+@@ -18,7 +18,7 @@
+ 
+         xcompmgr - (c) 2003 Keith Packard
+         metacity - (c) 2003, 2004 Red Hat, Inc.
+-        xfwm4    - (c) 2005-2015 Olivier Fourdan
++        xfwm4    - (c) 2005-2020 Olivier Fourdan
+ 
+ */
+ 
+@@ -97,6 +97,7 @@
+ #define WIN_IS_VISIBLE(cw)              (WIN_IS_VIEWABLE(cw) && WIN_HAS_DAMAGE(cw))
+ #define WIN_IS_DAMAGED(cw)              (cw->damaged)
+ #define WIN_IS_REDIRECTED(cw)           (cw->redirected)
++#define WIN_IS_SHADED(cw)               (WIN_HAS_CLIENT(cw) && FLAG_TEST (cw->c->flags, CLIENT_FLAG_SHADED))
+ 
+ #ifndef TIMEOUT_REPAINT_PRIORITY
+ #define TIMEOUT_REPAINT_PRIORITY   1
+@@ -706,6 +707,33 @@
+     return picture;
+ }
+ 
++static void
++translate_to_client_region (CWindow *cw, XserverRegion region)
++{
++    DisplayInfo *display_info;
++    ScreenInfo *screen_info;
++    int x, y;
++
++    g_return_if_fail (cw != NULL);
++    TRACE ("window 0x%lx", cw->id);
++
++    screen_info = cw->screen_info;
++    display_info = screen_info->display_info;
++
++    if (WIN_HAS_FRAME(cw))
++    {
++        x = frameX (cw->c) + frameLeft (cw->c);
++        y = frameY (cw->c) + frameTop (cw->c);
++    }
++    else
++    {
++        x = cw->attr.x + cw->attr.border_width;
++        y = cw->attr.y + cw->attr.border_width;
++    }
++
++    XFixesTranslateRegion (display_info->dpy, region, x, y);
++}
++
+ static XserverRegion
+ client_size (CWindow *cw)
+ {
+@@ -2085,9 +2113,6 @@
+         /* Client Window */
+         if (paint_solid)
+         {
+-            XRectangle  r;
+-            XserverRegion client_region;
+-
+             XFixesSetPictureClipRegion (display_info->dpy, paint_buffer, 0, 0, region);
+             XRenderComposite (display_info->dpy, PictOpSrc, cw->picture, None,
+                               paint_buffer,
+@@ -2096,13 +2121,8 @@
+                               frame_x + frame_left, frame_y + frame_top,
+                               frame_width - frame_left - frame_right, frame_height - frame_top - frame_bottom);
+ 
+-            r.x = frame_x + frame_left;
+-            r.y = frame_y + frame_top;
+-            r.width = frame_width - frame_left - frame_right;
+-            r.height = frame_height - frame_top - frame_bottom;
+-            client_region = XFixesCreateRegion (display_info->dpy, &r, 1);
+-            XFixesSubtractRegion (display_info->dpy, region, region, client_region);
+-            XFixesDestroyRegion (display_info->dpy, client_region);
++            /* clientSize is set in paint_all() prior to calling paint_win() */
++            XFixesSubtractRegion (display_info->dpy, region, region, cw->clientSize);
+         }
+         else if (!solid_part)
+         {
+@@ -2149,14 +2169,24 @@
+     g_return_if_fail (cw != NULL);
+     TRACE ("window 0x%lx", cw->id);
+ 
++    if (cw->opaque_region == None)
++    {
++        TRACE ("window 0x%lx has no opaque region", cw->id);
++        return;
++    }
++
+     screen_info = cw->screen_info;
+     display_info = screen_info->display_info;
+ 
+     opaque_region = XFixesCreateRegion (display_info->dpy, NULL, 0);
+     XFixesCopyRegion (display_info->dpy, opaque_region, cw->opaque_region);
+-    XFixesTranslateRegion (display_info->dpy, opaque_region,
+-                           cw->attr.x + cw->attr.border_width,
+-                           cw->attr.y + cw->attr.border_width);
++    translate_to_client_region (cw, opaque_region);
++    /* cw->borderSize and cw->clientSize are already updated in paint_all() */
++    if (cw->clientSize)
++    {
++        XFixesIntersectRegion (display_info->dpy, opaque_region, opaque_region, cw->clientSize);
++    }
++    XFixesIntersectRegion (display_info->dpy, opaque_region, opaque_region, cw->borderSize);
+     XFixesSubtractRegion (display_info->dpy, region, region, opaque_region);
+     XFixesDestroyRegion (display_info->dpy, opaque_region);
+ }
+@@ -2291,7 +2321,7 @@
+             XFixesCopyRegion (dpy, cw->borderClip, paint_region);
+         }
+ 
+-        if ((cw->opacity == NET_WM_OPAQUE) && (cw->opaque_region != None))
++        if ((cw->opacity == NET_WM_OPAQUE) && !WIN_IS_SHADED(cw))
+         {
+             clip_opaque_region (cw, paint_region);
+         }
+@@ -2966,7 +2996,6 @@
+     ScreenInfo *screen_info;
+     XRectangle *rects = NULL;
+     unsigned int nrects;
+-    XserverRegion old_opaque_region;
+ 
+     g_return_if_fail (cw != NULL);
+     TRACE ("window 0x%lx", cw->id);
+@@ -2974,7 +3003,11 @@
+     screen_info = cw->screen_info;
+     display_info = screen_info->display_info;
+ 
+-    old_opaque_region = cw->opaque_region;
++    if (cw->opaque_region)
++    {
++        XFixesDestroyRegion (display_info->dpy, cw->opaque_region);
++        cw->opaque_region = None;
++    }
+ 
+     nrects = getOpaqueRegionRects (display_info, id, &rects);
+     if (nrects)
+@@ -2982,24 +3015,6 @@
+         cw->opaque_region = XFixesCreateRegion (display_info->dpy, rects, nrects);
+         g_free (rects);
+     }
+-    else
+-    {
+-        cw->opaque_region = None;
+-    }
+-
+-    if (old_opaque_region)
+-    {
+-        if (cw->opaque_region)
+-        {
+-            XFixesSubtractRegion (display_info->dpy, old_opaque_region,
+-                                  old_opaque_region, cw->opaque_region);
+-        }
+-        XFixesTranslateRegion (display_info->dpy, old_opaque_region,
+-                               cw->attr.x + cw->attr.border_width,
+-                               cw->attr.y + cw->attr.border_width);
+-        /* old_opaque_region region will be destroyed by add_damage () */
+-        add_damage (screen_info, old_opaque_region);
+-    }
+ }
+ 
+ static void
+diff -Nur xfwm4-4.15.3_old/src/events.c xfwm4-4.15.3/src/events.c
+--- xfwm4-4.15.3_old/src/events.c	2020-10-31 18:22:52.000000000 +0700
++++ xfwm4-4.15.3/src/events.c	2020-11-20 06:51:43.000000000 +0700
+@@ -433,44 +433,28 @@
+                 clientFill (c, CLIENT_FILL_HORIZ);
+                 break;
+             case KEY_TILE_DOWN:
+-                clientTile (c, frameX (c) + frameWidth (c) / 2,
+-                               frameY (c) + frameHeight (c) / 2,
+-                               TILE_DOWN, TRUE, TRUE);
++                clientToggleTile (c, TILE_DOWN);
+                 break;
+             case KEY_TILE_LEFT:
+-                clientTile (c, frameX (c) + frameWidth (c) / 2,
+-                               frameY (c) + frameHeight (c) / 2,
+-                               TILE_LEFT, TRUE, TRUE);
++                clientToggleTile (c, TILE_LEFT);
+                 break;
+             case KEY_TILE_RIGHT:
+-                clientTile (c, frameX (c) + frameWidth (c) / 2,
+-                               frameY (c) + frameHeight (c) / 2,
+-                               TILE_RIGHT, TRUE, TRUE);
++                clientToggleTile (c, TILE_RIGHT);
+                 break;
+             case KEY_TILE_UP:
+-                clientTile (c, frameX (c) + frameWidth (c) / 2,
+-                               frameY (c) + frameHeight (c) / 2,
+-                               TILE_UP, TRUE, TRUE);
++                clientToggleTile (c, TILE_UP);
+                 break;
+             case KEY_TILE_DOWN_LEFT:
+-                clientTile (c, frameX (c) + frameWidth (c) / 2,
+-                               frameY (c) + frameHeight (c) / 2,
+-                               TILE_DOWN_LEFT, TRUE, TRUE);
++                clientToggleTile (c, TILE_DOWN_LEFT);
+                 break;
+             case KEY_TILE_DOWN_RIGHT:
+-                clientTile (c, frameX (c) + frameWidth (c) / 2,
+-                               frameY (c) + frameHeight (c) / 2,
+-                               TILE_DOWN_RIGHT, TRUE, TRUE);
++                clientToggleTile (c, TILE_DOWN_RIGHT);
+                 break;
+             case KEY_TILE_UP_LEFT:
+-                clientTile (c, frameX (c) + frameWidth (c) / 2,
+-                               frameY (c) + frameHeight (c) / 2,
+-                               TILE_UP_LEFT, TRUE, TRUE);
++                clientToggleTile (c, TILE_UP_LEFT);
+                 break;
+             case KEY_TILE_UP_RIGHT:
+-                clientTile (c, frameX (c) + frameWidth (c) / 2,
+-                               frameY (c) + frameHeight (c) / 2,
+-                               TILE_UP_RIGHT, TRUE, TRUE);
++                clientToggleTile (c, TILE_UP_RIGHT);
+                 break;
+             default:
+                 break;
+@@ -1846,7 +1830,14 @@
+             TRACE ("client \"%s\" (0x%lx) has received a GTK_FRAME_EXTENTS notify", c->name, c->window);
+             if (clientGetGtkFrameExtents (c))
+             {
+-                clientUpdateMaximizeSize (c);
++                if (FLAG_TEST (c->flags, CLIENT_FLAG_MAXIMIZED))
++                {
++                    clientUpdateMaximizeSize (c);
++                }
++                else if (c->tile_mode != TILE_NONE)
++                {
++                    clientUpdateTileSize (c);
++                }
+             }
+         }
+         else if (ev->atom == display_info->atoms[GTK_HIDE_TITLEBAR_WHEN_MAXIMIZED])
