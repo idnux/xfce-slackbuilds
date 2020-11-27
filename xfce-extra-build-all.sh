@@ -40,8 +40,6 @@ for dir in \
   extra/apps/xarchiver \
   extra/apps/xfce-polkit \
   extra/deps/gtk-engine-murrine \
-  extra/deps/libsass \
-  extra/deps/sassc \
   extra/theme/greybird-gtk-theme \
   extra/theme/materia-gtk-theme \
   extra/theme/moka-icon-theme \

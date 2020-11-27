@@ -44,9 +44,6 @@ for dir in \
   xfce/libxfce4ui \
   xfce/exo \
   xfce/garcon \
-  deps/libwnck3 \
-  deps/glade \
-  deps/gtksourceview3 \
   deps/libdbusmenu \
   xfce/xfce4-panel \
   xfce/thunar \
@@ -63,7 +60,6 @@ for dir in \
   xfce/xfdesktop \
   xfce/xfwm4 \
   xfce/xfce4-appfinder \
-  deps/upower \
   xfce/xfce4-power-manager \
   xfce/gtk-xfce-engine \
   apps/mousepad \
