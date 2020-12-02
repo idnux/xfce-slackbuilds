@@ -39,6 +39,9 @@ CHECKDUPLICATE=0
 for dir in \
   extra/apps/xarchiver \
   extra/apps/xfce-polkit \
+  extra/deps/psutil \
+  extra/deps/gnome-menus \
+  extra/apps/menulibre \
   extra/deps/gtk-engine-murrine \
   extra/theme/greybird-gtk-theme \
   extra/theme/materia-gtk-theme \

@@ -83,6 +83,7 @@ Senarai Paket:
   -  thunar-vcs-plugin 0.2.0
 - Aplikasi tambahan
   - Aplikasi
+    -  menulibre 2.2.1
     -  xarchiver 0.5.4.15
     -  xfce-polkit 0.3
   - Tema
@@ -90,7 +91,9 @@ Senarai Paket:
     -  materia-gtk-theme 20200916
     -  moka-icon-theme 5.4.0
   - Dependensi
+    -  gnome-menus 3.36.0
     -  gtk-engine-murrine 0.98.2
+    -  psutil 5.7.3
 
 
 Sila digunakan dengan bebas, namun tidak ada jaminan paket yang dihasilkan dapat bekerja di sistem milik anda.
