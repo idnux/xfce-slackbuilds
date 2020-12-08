@@ -44,7 +44,6 @@ for dir in \
   xfce/libxfce4ui \
   xfce/exo \
   xfce/garcon \
-  deps/libdbusmenu \
   xfce/xfce4-panel \
   xfce/thunar \
   xfce/thunar-volman \
@@ -73,7 +72,6 @@ for dir in \
   apps/xfce4-dict \
   apps/xfce4-volumed-pulse \
   deps/libisofs \
-  deps/libburn \
   apps/xfburn \
   deps/python-distutils-extra \
   deps/ptyprocess \
