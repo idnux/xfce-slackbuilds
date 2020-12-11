@@ -25,7 +25,7 @@
 
 PRGNAM=libxfce4ui
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
@@ -82,9 +82,6 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-# Apply patches:
-cat $CWD/patches/xfce-about.patch | patch -p1 --verbose
-
 # Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -136,7 +133,7 @@ find $PKG/usr/share/icons -type f -name "icon-theme.cache" -exec rm -f {} \;
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
 cp -a \
-  AUTHORS COPYING INSTALL NEWS THANKS TODO \
+  AUTHORS COPYING INSTALL NEWS README.md THANKS TODO \
   $PKG/usr/doc/${PRGNAM}-$VERSION
 
 ( cd $PKG/usr/doc/$PRGNAM-$VERSION
