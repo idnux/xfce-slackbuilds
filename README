@@ -7,23 +7,23 @@ Paket-paket yang tersedia dalam lumbung ini merupakan versi pengembangan menuju 
 
 Senarai Paket:
 - Modul inti Xfce:
-  -  exo 4.15.3
-  -  garcon 0.7.3
+  -  exo 4.16.0
+  -  garcon 0.8.0
   -  gtk-xfce-engine 3.2.0
-  -  libxfce4ui 4.15.8
-  -  libxfce4util 4.15.6
-  -  thunar 4.15.3
-  -  thunar-volman 4.15.1
-  -  tumbler 0.3.1
-  -  xfce4-appfinder 4.15.2
-  -  xfce4-dev-tools 4.15.1
-  -  xfce4-panel 4.15.6
-  -  xfce4-power-manager 1.7.1
-  -  xfce4-session 4.15.1
-  -  xfce4-settings 4.15.3
-  -  xfconf 4.15.1
-  -  xfdesktop 4.15.1
-  -  xfwm4 4.15.3
+  -  libxfce4ui 4.16.0
+  -  libxfce4util 4.16.0
+  -  thunar 4.16.0
+  -  thunar-volman 4.16.0
+  -  tumbler 4.16.0
+  -  xfce4-appfinder 4.16.0
+  -  xfce4-dev-tools 4.16.0
+  -  xfce4-panel 4.16.0
+  -  xfce4-power-manager 4.16.0
+  -  xfce4-session 4.16.0
+  -  xfce4-settings 4.16.0
+  -  xfconf 4.16.0
+  -  xfdesktop 4.16.0
+  -  xfwm4 4.16.0
 - Pustaka:
   -  argyllcms 2.1.2
   -  colord 1.4.5

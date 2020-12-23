@@ -125,7 +125,7 @@ fi
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
 cp -a \
-  AUTHORS COPYING* NEWS README.md TODO \
+  AUTHORS COPYING NEWS README.md TODO \
   $PKG/usr/doc/${PRGNAM}-$VERSION
 
 ( cd $PKG/usr/doc/$PRGNAM-$VERSION

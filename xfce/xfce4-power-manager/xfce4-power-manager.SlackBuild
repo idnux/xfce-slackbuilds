@@ -128,7 +128,7 @@ fi
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/html
 cp -a \
-  AUTHORS COPYING* NEWS README* TODO \
+  AUTHORS COPYING NEWS README.md TODO \
   $PKG/usr/doc/$PRGNAM-$VERSION
 
 # If there's a ChangeLog, installing at least part of the recent history

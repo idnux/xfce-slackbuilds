@@ -128,7 +128,7 @@ find $PKG/usr/share/icons -type f -name "icon-theme.cache" -exec rm -f {} \;
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/${PRGNAM}-$VERSION
 cp -a \
-  AUTHORS COPYING* FAQ HACKING INSTALL NEWS README.md THANKS TODO \
+  AUTHORS COPYING* FAQ HACKING INSTALL NEWS README.md THANKS \
   $PKG/usr/doc/${PRGNAM}-$VERSION
 
 ( cd $PKG/usr/doc/$PRGNAM-$VERSION
