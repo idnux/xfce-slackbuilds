@@ -24,7 +24,7 @@
 
 PRGNAM=xfce4-genmon-plugin
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
@@ -81,9 +81,6 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-# Fix build with xfce panel 4.15:
-cat $CWD/patches/xfce-panel-4.15.patch | patch -p1 --verbose
-
 # Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -123,7 +120,7 @@ fi
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  AUTHORS COPYING* INSTALL NEWS README* \
+  AUTHORS COPYING INSTALL NEWS README \
   $PKG/usr/doc/$PRGNAM-$VERSION
 
 # If there's a ChangeLog, installing at least part of the recent history
