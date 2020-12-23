@@ -39,7 +39,7 @@ Senarai Paket:
 - Aplikasi:
   -  catfish 4.15.0
   -  gigolo 0.5.1
-  -  mousepad 0.5.0
+  -  mousepad 0.5.1
   -  parole 1.0.5
   -  ristretto 0.10.0
   -  xfburn 0.6.2
@@ -47,9 +47,9 @@ Senarai Paket:
   -  xfce4-notifyd 0.6.2
   -  xfce4-panel-profiles 1.0.10
   -  xfce4-screensaver 0.1.11
-  -  xfce4-screenshooter 1.9.7
+  -  xfce4-screenshooter 1.9.8
   -  xfce4-taskmanager 1.2.3
-  -  xfce4-terminal 0.8.9.2
+  -  xfce4-terminal 0.8.10
   -  xfce4-volumed-pulse 0.2.3
 - Colok-masuk panel:
   -  xfce4-battery-plugin 1.1.3
