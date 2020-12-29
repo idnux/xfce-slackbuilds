@@ -40,7 +40,6 @@ for dir in \
   xfce/xfce4-dev-tools \
   xfce/libxfce4util \
   xfce/xfconf \
-  deps/libgtop \
   xfce/libxfce4ui \
   xfce/exo \
   xfce/garcon \
