@@ -98,6 +98,7 @@ for dir in \
   panel-plugins/xfce4-stopwatch-plugin \
   panel-plugins/xfce4-systemload-plugin \
   panel-plugins/xfce4-timer-plugin \
+  panel-plugins/xfce4-verve-plugin \
   panel-plugins/xfce4-weather-plugin \
   panel-plugins/xfce4-whiskermenu-plugin \
   panel-plugins/xfce4-xkb-plugin \
