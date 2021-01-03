@@ -42,6 +42,7 @@ for dir in \
   extra/deps/psutil \
   extra/deps/gnome-menus \
   extra/apps/menulibre \
+  extra/apps/mugshot \
   extra/deps/gtk-engine-murrine \
   extra/theme/greybird-gtk-theme \
   extra/theme/materia-gtk-theme \

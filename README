@@ -73,7 +73,7 @@ Senarai Paket:
   -  xfce4-timer-plugin 1.7.1
   -  xfce4-verve-plugin 2.0.1
   -  xfce4-weather-plugin 0.10.2
-  -  xfce4-whiskermenu-plugin 2.5.0
+  -  xfce4-whiskermenu-plugin 2.5.1
   -  xfce4-xkb-plugin 0.8.2
 - Colok-masuk Thunar
   -  thunar-archive-plugin 0.4.0
@@ -82,6 +82,7 @@ Senarai Paket:
 - Aplikasi tambahan
   - Aplikasi
     -  menulibre 2.2.1
+    -  mugshot 0.4.2
     -  xarchiver 0.5.4.15
     -  xfce-polkit 0.3
   - Tema
