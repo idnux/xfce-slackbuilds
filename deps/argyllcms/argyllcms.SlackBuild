@@ -29,8 +29,7 @@
 PRGNAM="argyllcms"
 SRCNAM="Argyll"
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-SRCVERSION=${SRCVERSION:-V$VERSION}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
@@ -55,7 +54,7 @@ unset DOWNLOAD
 eval `cat $PRGNAM.info | grep "DOWNLOAD="`
 if [ ! -e $(basename $DOWNLOAD) ]; then
   echo "Downloading: $DOWNLOAD"
-  rm -f ${SRCNAM}_${SRCVERSION}_src.*
+  rm -f ${SRCNAM}_V${VERSION}_src.*
   curl -OLJ -C - $DOWNLOAD
 fi
 
@@ -75,9 +74,9 @@ set -e
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
 cd $WRK
-rm -rf $SRCNAM_$SRCVERSION
-unzip $CWD/${SRCNAM}_${SRCVERSION}_src.zip
-cd ${SRCNAM}_${SRCVERSION}
+rm -rf ${SRCNAM}_V${VERSION}
+unzip $CWD/${SRCNAM}_V${VERSION}_src.zip
+cd ${SRCNAM}_V${VERSION}
 
 # Make sure ownerships and permissions are sane:
 chown -R root:root .
@@ -86,6 +85,9 @@ find -L . \
  -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
+
+# Apply patches:
+cat $CWD/patches/GCC-10-fix.patch | patch -p1 --verbose
 
 ### install steps have been shamelessly copied from Arch Linux PKGBUILD
 ### https://projects.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/argyllcms
@@ -156,4 +158,4 @@ cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 echo "Cleaning up build directory"
-cd $WRK; rm -rf ${SRCNAM}_${SRCVERSION} $PKG
+cd $WRK; rm -rf ${SRCNAM}_V${VERSION} $PKG
