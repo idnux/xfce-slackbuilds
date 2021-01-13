@@ -81,9 +81,6 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-# Apply patch to display the actual governor instead of "current":
-cat $CWD/patches/cpufreq-governor.patch | patch -p1 --verbose
-
 # Configure, build, and install:
 GEONAMES_USERNAME="slackware" \
 CFLAGS="$SLKCFLAGS" \
@@ -124,7 +121,7 @@ fi
 # disappear from version to version will not be missed.
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  AUTHORS COPYING* INSTALL NEWS README* TODO \
+  AUTHORS COPYING INSTALL NEWS README TODO \
   $PKG/usr/doc/$PRGNAM-$VERSION
 
 # If there's a ChangeLog, installing at least part of the recent history
