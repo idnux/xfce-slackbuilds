@@ -86,12 +86,13 @@ find -L . \
 mkdir -p build
 cd build
   cmake \
-    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_C_FLAGS="$SLKCFLAGS" \
+    -DCMAKE_CXX_FLAGS="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=/usr/lib${LIBDIRSUFFIX} \
     -DCMAKE_INSTALL_MANDIR=/usr/man \
-    -DCMAKE_BUILD_TYPE=Release ..
+    -DCMAKE_BUILD_TYPE=Release \
+    ..
   make $NUMJOBS
   make install DESTDIR=$PKG
 cd -
