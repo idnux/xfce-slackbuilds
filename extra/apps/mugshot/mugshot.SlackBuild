@@ -80,9 +80,6 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-# Apply patches:
-cat $CWD/patches/python-3.9.patch | patch -p1 --verbose
-
 # Build and install:
 python3 setup.py build
 python3 setup.py install --root=$PKG

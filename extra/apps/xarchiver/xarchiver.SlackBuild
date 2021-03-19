@@ -89,6 +89,7 @@ CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --libexecdir=/usr/lib${LIBDIRSUFFIX}/xfce4 \
   --sysconfdir=/etc \
   --mandir=/usr/man \
   --localstatedir=/var \
