@@ -29,10 +29,10 @@ Senarai Paket:
   -  colord 1.4.5
   -  ffmpegthumbnailer 2.2.2
   -  ftjam 2.5.2
-  -  libgusb 0.3.5
-  -  libisofs 1.5.2
-  -  pexpect 4.8.0
-  -  ptyprocess 0.6.0
+  -  libgusb 0.3.6
+  -  libisofs 1.5.4
+  -  python-pexpect 4.8.0
+  -  python-ptyprocess 0.7.0
   -  python-distutils-extra 2.39
   -  xiccd 0.3.0
 - Aplikasi:
