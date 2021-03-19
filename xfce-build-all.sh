@@ -73,8 +73,8 @@ for dir in \
   deps/libisofs \
   apps/xfburn \
   deps/python-distutils-extra \
-  deps/ptyprocess \
-  deps/pexpect \
+  deps/python-ptyprocess \
+  deps/python-pexpect \
   apps/catfish \
   apps/gigolo \
   apps/xfce4-panel-profiles \
