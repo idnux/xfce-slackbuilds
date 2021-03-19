@@ -23,7 +23,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # Modified 2020 by Ali <idnux09@gmail.com>
 
-PRGNAM=psutil
+PRGNAM=python-psutil
+SRCNAM=psutil
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
 BUILD=${BUILD:-1}
 TAG=${TAG:-_idn}
@@ -49,7 +50,7 @@ unset DOWNLOAD
 eval `cat $PRGNAM.info | grep "DOWNLOAD="`
 if [ ! -e $(basename $DOWNLOAD) ]; then
   echo "Downloading: $DOWNLOAD"
-  rm -f $PRGNAM-$VERSION.tar.*
+  rm -f $SRCNAM-$VERSION.tar.*
   curl -OLJ -C - $DOWNLOAD
 fi
 
@@ -69,9 +70,9 @@ set -e
 rm -rf $PKG
 mkdir -p $WRK $PKG $OUTPUT
 cd $WRK
-rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.?z*
-cd $PRGNAM-$VERSION
+rm -rf $SRCNAM-$VERSION
+tar xvf $CWD/$SRCNAM-$VERSION.tar.?z*
+cd $SRCNAM-$VERSION
 
 # Make sure ownerships and permissions are sane:
 chown -R root:root .
@@ -130,4 +131,4 @@ cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 echo "Cleaning up build directory"
-cd $WRK; rm -rf $PRGNAM-$VERSION $PKG
+cd $WRK; rm -rf $SRCNAM-$VERSION $PKG

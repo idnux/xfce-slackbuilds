@@ -92,7 +92,7 @@ Senarai Paket:
   - Dependensi
     -  gnome-menus 3.36.0
     -  gtk-engine-murrine 0.98.2
-    -  psutil 5.7.3
+    -  python-psutil 5.8.0
 
 
 Sila digunakan dengan bebas, namun tidak ada jaminan paket yang dihasilkan dapat bekerja di sistem milik anda.
