@@ -1,0 +1,11 @@
+diff -Nur libxfce4ui-4.16.0_old/libxfce4kbd-private/xfce4-keyboard-shortcuts.xml libxfce4ui-4.16.0/libxfce4kbd-private/xfce4-keyboard-shortcuts.xml
+--- libxfce4ui-4.16.0_old/libxfce4kbd-private/xfce4-keyboard-shortcuts.xml	2020-10-23 22:03:13.000000000 +0700
++++ libxfce4ui-4.16.0/libxfce4kbd-private/xfce4-keyboard-shortcuts.xml	2021-05-18 09:39:18.897605628 +0700
+@@ -4,6 +4,7 @@
+   <property name="commands" type="empty">
+     <property name="default" type="empty">
+       <property name="&lt;Alt&gt;F1" type="string" value="xfce4-popup-applicationsmenu"/>
++      <property name="&lt;Super&gt;space" type="string" value="xfce4-popup-whiskermenu"/>
+       <property name="&lt;Alt&gt;F2" type="string" value="xfce4-appfinder --collapsed">
+         <property name="startup-notify" type="bool" value="true"/>
+       </property>

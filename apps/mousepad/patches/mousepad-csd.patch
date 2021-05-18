@@ -1,0 +1,29 @@
+From db4e6943c04612d31808cd9ca5dc3b611575e96a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ga=C3=ABl=20Bonithon?= <gael@xfce.org>
+Date: Fri, 14 May 2021 17:46:08 +0200
+Subject: CSD: Set the decoration layout for all windows
+
+It was set only for the first window, a mistake in !97.
+---
+ mousepad/mousepad-util.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/mousepad/mousepad-util.c b/mousepad/mousepad-util.c
+index 495e5c8..e07a3bc 100644
+--- a/mousepad/mousepad-util.c
++++ b/mousepad/mousepad-util.c
+@@ -507,8 +507,10 @@ mousepad_util_set_titlebar (GtkWindow *window)
+                                    G_CALLBACK (mousepad_util_decoration_layout_changed), bar, 0);
+         }
+       else
+-        gtk_header_bar_set_decoration_layout (GTK_HEADER_BAR (bar), "icon:minimize,maximize,close");
++        gtk_header_bar_set_decoration_layout (GTK_HEADER_BAR (bar), "icon,menu:minimize,maximize,close");
+     }
++  else
++    mousepad_util_decoration_layout_changed (G_OBJECT (settings), NULL, bar);
+ 
+   /* make the header bar slim */
+   context = gtk_widget_get_style_context (bar);
+-- 
+cgit v1.2.3
+

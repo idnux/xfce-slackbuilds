@@ -1,0 +1,18 @@
+diff -Nur thunar-4.17.3_old/plugins/thunar-uca/uca.xml.in thunar-4.17.3/plugins/thunar-uca/uca.xml.in
+--- thunar-4.17.3_old/plugins/thunar-uca/uca.xml.in	2021-05-07 18:50:34.000000000 +0700
++++ thunar-4.17.3/plugins/thunar-uca/uca.xml.in	2021-05-17 11:13:21.039560802 +0700
+@@ -44,5 +44,14 @@
+     <startup-notify/>
+     <directories/>
+   </action>
++  <action>
++    <icon>org.xfce.catfish</icon>
++    <patterns>*</patterns>
++    <_name>Search files in folder</_name>
++    <command>catfish %f</command>
++    <_description>Example for a custom action</_description>
++    <startup-notify/>
++    <directories/>
++  </action>
+ 
+ </actions>
