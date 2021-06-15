@@ -29,7 +29,7 @@
 PRGNAM="argyllcms"
 SRCNAM="Argyll"
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
@@ -85,9 +85,6 @@ find -L . \
  -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
-
-# Apply patches:
-cat $CWD/patches/GCC-10-fix.patch | patch -p1 --verbose
 
 ### install steps have been shamelessly copied from Arch Linux PKGBUILD
 ### https://projects.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/argyllcms

@@ -25,10 +25,10 @@ Senarai Paket:
   -  xfdesktop 4.16.0
   -  xfwm4 4.16.1
 - Pustaka:
-  -  argyllcms 2.1.2
+  -  argyllcms 2.2.0
   -  colord 1.4.5
   -  ffmpegthumbnailer 2.2.2
-  -  ftjam 2.5.2
+  -  ftjam 2.5.3rc2
   -  libgusb 0.3.7
   -  libisofs 1.5.4
   -  python-pexpect 4.8.0
