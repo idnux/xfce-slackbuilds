@@ -120,9 +120,6 @@ if [ -d $PKG/usr/man ]; then
   )
 fi
 
-# We don't want icon caches:
-find $PKG/usr/share/icons -type f -name "icon-theme.cache" -exec rm -f {} \;
-
 # Add a documentation directory.  Not all of these files are expected to be
 # present, but listing them ensures that documentation that might appear and
 # disappear from version to version will not be missed.

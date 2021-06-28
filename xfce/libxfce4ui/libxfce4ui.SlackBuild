@@ -25,7 +25,7 @@
 
 PRGNAM=libxfce4ui
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
@@ -83,7 +83,6 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Apply patches:
-cat $CWD/patches/libxfce4ui.patch | patch -p1 --verbose
 cat $CWD/patches/xfce4-whiskermenu-shortcut.patch | patch -p1 --verbose
 
 # Configure, build, and install:
