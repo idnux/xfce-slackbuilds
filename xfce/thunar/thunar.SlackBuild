@@ -92,6 +92,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --sysconfdir=/etc \
+  --infodir=/usr/info \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --disable-static \
@@ -101,12 +102,27 @@ CXXFLAGS="$SLKCFLAGS" \
 make $NUMJOBS
 make install DESTDIR=$PKG
 
+# Remove systemd files:
+if [ "$ARCH" = "x86_64" ]; then
+  rm -rf $PKG/usr/lib
+else
+  rm -rf $PKG/usr/lib/systemd
+fi
+
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+# Compress info files
+if [ -d $PKG/usr/info ]; then
+  ( cd $PKG/usr/info
+    rm -f dir
+    gzip -9 *
+  )
+fi
 
 # Compress and if needed symlink the man pages:
 if [ -d $PKG/usr/man ]; then
