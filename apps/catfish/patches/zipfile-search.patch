@@ -1,0 +1,29 @@
+From 82fa49eb4007b9689aa05312c87f9cadb3f0277f Mon Sep 17 00:00:00 2001
+From: Darin <newhoa@protonmail.com>
+Date: Sat, 10 Jul 2021 07:31:21 -0400
+Subject: Stops freezes with special files when zip search enabled
+
+zipfile.is_zipfile() freezes when checking
+special files (pipe files, for example). This
+may actually be a bug in the zipfile library.
+---
+ catfish/CatfishSearchEngine.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/catfish/CatfishSearchEngine.py b/catfish/CatfishSearchEngine.py
+index 6b4d5eaa..931ec63d 100644
+--- a/catfish/CatfishSearchEngine.py
++++ b/catfish/CatfishSearchEngine.py
+@@ -452,7 +452,8 @@ class CatfishSearchMethod_Walk(CatfishSearchMethod):
+                 fullpath = os.path.join(root, path)
+                 if self.search_path(path, keywords):
+                     yield fullpath
+-                if search_zips and zipfile.is_zipfile(fullpath):
++                if search_zips and \
++                   os.path.isfile(fullpath) and zipfile.is_zipfile(fullpath):
+                     yield fullpath
+             yield True
+         yield False
+-- 
+cgit v1.2.3
+
