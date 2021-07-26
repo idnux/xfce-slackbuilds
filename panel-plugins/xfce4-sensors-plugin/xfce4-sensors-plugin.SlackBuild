@@ -89,12 +89,12 @@ CXXFLAGS="$SLKCFLAGS" \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --sysconfdir=/etc \
+  --infodir=/usr/info \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --datadir=/usr/share \
   --datarootdir=/usr/share \
   --enable-shared=yes \
-  --enable-static=no \
   --enable-debug=no \
   --disable-pathchecks \
   --build=$ARCH-slackware-linux
@@ -108,6 +108,14 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+# Compress info files
+if [ -d $PKG/usr/info ]; then
+  ( cd $PKG/usr/info
+    rm -f dir
+    gzip -9 *
+  )
+fi
 
 # Compress and if needed symlink the man pages:
 if [ -d $PKG/usr/man ]; then
