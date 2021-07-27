@@ -96,6 +96,8 @@ CXXFLAGS="$SLKCFLAGS" \
   --datarootdir=/usr/share \
   --enable-shared=yes \
   --enable-debug=no \
+  --enable-hddtemp=yes \
+  --enable-netcat \
   --disable-pathchecks \
   --build=$ARCH-slackware-linux
 
