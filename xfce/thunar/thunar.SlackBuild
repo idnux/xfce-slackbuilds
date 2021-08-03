@@ -25,7 +25,7 @@
 
 PRGNAM=thunar
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
@@ -84,6 +84,8 @@ find -L . \
 
 # Apply patches:
 cat $CWD/patches/search_action.patch | patch -p1 --verbose
+cat $CWD/patches/add-search.patch | patch -p1 --verbose
+cat $CWD/patches/add-open-item-location.patch | patch -p1 --verbose
 
 # Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
