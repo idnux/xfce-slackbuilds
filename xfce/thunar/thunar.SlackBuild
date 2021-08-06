@@ -25,7 +25,7 @@
 
 PRGNAM=thunar
 VERSION=$(cat $PRGNAM.info | grep "VERSION" | cut -d = -f 2 | sed 's/"//g')
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_idn}
 NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
 
@@ -86,6 +86,8 @@ find -L . \
 cat $CWD/patches/search_action.patch | patch -p1 --verbose
 cat $CWD/patches/add-search.patch | patch -p1 --verbose
 cat $CWD/patches/add-open-item-location.patch | patch -p1 --verbose
+cat $CWD/patches/add-location-column.patch | patch -p1 --verbose
+cat $CWD/patches/fix-recency-column.patch | patch -p1 --verbose
 
 # Configure, build, and install:
 CFLAGS="$SLKCFLAGS" \
@@ -97,6 +99,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --infodir=/usr/info \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --enable-shared \
   --disable-static \
   --disable-debug \
   --build=$ARCH-slackware-linux
